@@ -17,7 +17,6 @@ public class ConnectionToBase {
     public static DataSource getDataSource() {
         if (dataSource == null) {
             try {
-
                 Context initContext = new InitialContext();
                 Context context = (Context) initContext.lookup("java:comp/env");
                 DataSource dataSrc = (DataSource) context.lookup("jdbc/mydb");
