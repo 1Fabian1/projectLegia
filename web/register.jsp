@@ -8,42 +8,39 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Rejestracja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png">
+
+    <title>Zarejestruj się</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="${pageContext.request.contextPath}/resources/css/singin.css" rel="stylesheet">
+
 </head>
-<body>
-<div>
-<h1>Witaj na stronie rejestracji</h1>
-</div>
-<table border="0" cellpadding="10" cellspacing="10">
-    <tr>
-        <td>
-            Nazwa użytkownika:
-        </td>
-        <td>
-            <form>
-                <input type="text" name="username" />
-            </form>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            hasło:
-        </td>
-        <td>
-            <form>
-                <input type="text" name="password" />
-            </form>
-        </td>
-    </tr>
-    <tr>
+</head>
+<body class="text-center">
+<form class="form-signin">
+    <img class="mb-4" src="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png" alt="" width="250"
+         height="220">
+    <h1 class="h3 mb-3 font-weight-normal">Zarejestruj się</h1>
+    <p><label for="username" class="sr-only">username</label>
+        <input type="text" id="username" class="form-control" placeholder="Nazwa użytkownika" required autofocus></p>
 
-        <td>
-            <form>
-                <input type="button" name="registry" value="zarejstruj się" />
-            </form>
-        </td>
-    </tr>
-</table>
+    <p><label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus></p>
 
+    <p><label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" required></p>
+
+    <p><label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPasswordRepeat" class="form-control" placeholder="Powtórz hasło" required></p>
+
+    <a class="btn btn-large btn-block btn-default" href="index.jsp" role="button">Zarejstruj się</a>
+</form>
 </body>
 </html>
