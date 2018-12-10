@@ -28,17 +28,16 @@
     <img class="mb-4" src="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png" alt="" width="250"
          height="220">
     <h1 class="h3 mb-3 font-weight-normal">Zarejestruj się</h1>
-    <p><label for="username" class="sr-only">username</label>
-        <input type="text" id="username" class="form-control" placeholder="Nazwa użytkownika" required autofocus></p>
-
-    <p><label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus></p>
+    <p><label for="InputUsername" class="sr-only">username</label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Nazwa użytkownika" required autofocus></p>
 
     <p><label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" required></p>
 
-    <p><label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPasswordRepeat" class="form-control" placeholder="Powtórz hasło" required></p>
+    <p><label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus></p>
+
+
 
     <a class="btn btn-large btn-block btn-default" href="index.jsp" role="button">Zarejstruj się</a>
 </form>
