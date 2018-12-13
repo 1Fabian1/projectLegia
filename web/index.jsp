@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -13,34 +14,22 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png">
-
     <title>Witaj na stronie Legii Akademickiej</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template 
-    <link href="${pageContext.request.contextPath}/resources/css/singin.css" rel="stylesheet">
-    -->
+    <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
 </head>
-<body class="text-center">
-    <div class="page-header">
-      <h1>Witaj na stronie Legii Akademickiej</h1>
-    </div>
-    <div>
-            <a class="btn btn-large btn-block btn-default" href="login.jsp" role="button">Zaloguj się</a>
-        <p>
-        <P>
-            <a class="btn btn-large btn-block btn-default" href="register.jsp" role="button">Zarejstruj się</a>
-    </div>
+<body>
+    <h1>czolo</h1>
+    <c:choose>
+  <c:when test="${not empty sessionScope.user}">
+   	<li><a href="index.jsp">Wyloguj się</a></li>
+      <li><a href="/proposal">Złóż wniosek</a></li>
+  </c:when>
+  <c:otherwise>
+ 	<li><a href="/proposal">Zaloguj się</a></li>
+      <li><a href="/register">Zarejestruj się</a></li>
 
-    <!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="${pageContext.request.contextPath}/resources/css/popper.min.js"></script>
-<script src=".${pageContext.request.contextPath}/resources/css/bootstrap.min.js"></script>
+ </c:otherwise>
+</c:choose>
 </body>
 </html>
 
