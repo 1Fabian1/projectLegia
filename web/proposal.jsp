@@ -15,7 +15,7 @@
 <body>
 
 
-<form method="POST">
+<form method="POST" action="/proposal">
     <h1>Wypełnij wniosek</h1>
         Imię:
           <input type="text" name="first_name"><br>
@@ -32,7 +32,7 @@
                     Pesel:
                       <input type="text" name="PESEL"><br>
                       Adres pobytu stałego:
-                        <input type="text" name="adress_of_stay"><br>
+                        <input type="text" name="address_of_stay"><br>
                         Adres korespondencyjny:
                           <input type="text" name="address_for_correspondence"><br>
                           Numer telefonu:

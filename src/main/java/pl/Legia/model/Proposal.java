@@ -174,16 +174,18 @@ public class Proposal {
     }
 
     public String getHealthCategory() {
+        System.out.println("ProposalClass health_category getter: "+ healthCategory);
         return healthCategory;
     }
 
     public void setHealthCategory(String healthCategory) {
-        healthCategory = healthCategory;
+        this.healthCategory = healthCategory;
     }
+
 
     @Override
     public String toString() {
-        return "Proposal{" +
+        return "proposal{" +
                 "proposalId=" + proposalId +
                 ", firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
@@ -200,7 +202,7 @@ public class Proposal {
                 ", fieldOfStudy='" + fieldOfStudy + '\'' +
                 ", yearOfStudy='" + yearOfStudy + '\'' +
                 ", plannedYearOfGraduation='" + plannedYearOfGraduation + '\'' +
-                ", HealthCategory='" + healthCategory + '\'' +
+                ", healthCategory='" + healthCategory + '\'' +
                 '}';
     }
 

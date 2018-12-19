@@ -15,9 +15,10 @@ public class LoginFilter implements Filter {
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest httpReq = (HttpServletRequest) req;
-        if(httpReq.getUserPrincipal() != null && httpReq.getSession().getAttribute("user") == null) {
+        //if(httpReq.getUserPrincipal() != null && httpReq.getSession().getAttribute("user") == null) {
             saveUserInSession(httpReq);
-        }
+        //}
+        System.out.println("Filter -Nazwa użytkownika: "+ httpReq.getSession().getAttribute("user"));
         chain.doFilter(req, resp);
     }
 
@@ -29,6 +30,7 @@ public class LoginFilter implements Filter {
         String username = request.getUserPrincipal().getName();
         User userByUsername = userService.getUserByUsername(username);
         request.getSession(true).setAttribute("user", userByUsername);
+        System.out.println("Nazwa użytkownika: "+ userByUsername);
     }
 
 }

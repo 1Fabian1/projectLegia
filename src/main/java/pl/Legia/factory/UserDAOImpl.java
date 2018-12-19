@@ -10,6 +10,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import pl.Legia.dataSource.ConnectionProvider;
 import pl.Legia.model.User;
 
+import javax.swing.tree.TreePath;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -81,6 +82,8 @@ public class UserDAOImpl implements UserDAO {
         return resultUser;
     }
 
+
+
     private class UserRowMapper implements RowMapper {
 
         @Override
@@ -92,4 +95,5 @@ public class UserDAOImpl implements UserDAO {
             return user;
         }
     }
+
 }

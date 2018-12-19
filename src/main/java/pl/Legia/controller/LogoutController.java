@@ -9,10 +9,11 @@ import java.io.IOException;
 
 public class LogoutController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println("LogoutController - Post");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("LogoutController - Get");
         request.getSession().invalidate();
         response.sendRedirect(request.getContextPath()+"/");
     }

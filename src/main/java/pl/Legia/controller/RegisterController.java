@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class RegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println("RegisterController - Post");
         request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("inputUsername");
         String password = request.getParameter("inputPassword");
@@ -24,6 +24,7 @@ public class RegisterController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        System.out.println("RegisterController - get");
         request.getRequestDispatcher("register.jsp").forward(request, response);
     }
 }
