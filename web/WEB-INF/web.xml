@@ -3,8 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
-
+    
 
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
@@ -24,6 +23,11 @@
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>pl.Legia.controller.LogoutController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ProposalListServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.ProposalListController</servlet-class>
     </servlet>
     
 
@@ -47,6 +51,11 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ProposalListServlet</servlet-name>
+        <url-pattern>/proposalList</url-pattern>
+    </servlet-mapping>
 
     <!-- Flitry -->
     <security-constraint>
@@ -59,6 +68,7 @@
             <url-pattern>/login</url-pattern>
             <url-pattern>/mainPage.jsp</url-pattern>
             <url-pattern>/mainPage</url-pattern>
+            <url-pattern>/proposalList</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>

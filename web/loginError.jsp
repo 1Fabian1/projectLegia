@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>Błąd logowania</title>
+    <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
 </head>
 <body>
+  
 <h1>Błąd logowania</h1>
 <a href="login.jsp">Wróć do logowania</a>
 

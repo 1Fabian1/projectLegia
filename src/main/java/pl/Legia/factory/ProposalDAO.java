@@ -7,4 +7,5 @@ import java.util.List;
 public interface ProposalDAO extends GenericDAO<Proposal, Long> {
 
     List<Proposal> getAll();
+    Proposal getProposalById(long proposalId);
 }

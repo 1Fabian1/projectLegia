@@ -10,6 +10,8 @@ public abstract class DAOFactory {
 
     public abstract ProposalDAO getProposalDAO();
 
+    public abstract ProposalListDAO getProposalListDAO();
+
     public static DAOFactory getDAOFactory() {
         DAOFactory factory = null;
         try {
@@ -28,4 +30,5 @@ public abstract class DAOFactory {
                 throw new NoDbTypeException();
         }
     }
+
 }

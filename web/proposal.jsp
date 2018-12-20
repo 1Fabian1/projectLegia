@@ -10,46 +10,56 @@
 <head>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png">
     <title>Wniosek</title>
-    <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
 </head>
 <body>
-
+    <div>
+        <nav>
+            <ul>
+                    <li><a href=mainPage.jsp>Strona Domowa</a></li>
+                    <li><a href=/register>Rejestracja</a></li>
+                    <li><a href=/login>Logowanie</a></li>
+                    <li><a href="/proposal">Wniosek</a></li>
+                    <li><a id="out" href="/logout">Wyloguj</a></li>
+            </ul>
+    </nav>
+</div>
 
 <form method="POST" action="/proposal">
     <h1>Wypełnij wniosek</h1>
         Imię:
-          <input type="text" name="first_name"><br>
-          drugie imie:
+          <input type="text" name="first_name" required><br>
+          Drugie imie(niewymagane):
             <input type="text" name="second_name"><br>
             Nazwisko:
-              <input type="text" name="surname"><br>
+              <input type="text" name="surname" required><br>
               Narodowość:
-                <input type="text" name="citizenship"><br>
+                <input type="text" name="citizenship" required><br>
                 Data urodzenia:
-                  <input type="date" name="birth_date"><br>
+                  <input type="date" name="birth_date" required><br>
                   Miejsce urodzenia:
-                    <input type="text" name="birth_place"><br>
+                    <input type="text" name="birth_place" required><br>
                     Pesel:
-                      <input type="text" name="PESEL"><br>
+                      <input type="text" name="PESEL" required><br>
                       Adres pobytu stałego:
-                        <input type="text" name="address_of_stay"><br>
+                        <input type="text" name="address_of_stay" required><br>
                         Adres korespondencyjny:
-                          <input type="text" name="address_for_correspondence"><br>
+                          <input type="text" name="address_for_correspondence" required><br>
                           Numer telefonu:
-                            <input type="text" name="phone_number"><br>
+                            <input type="text" name="phone_number" required><br>
                             Nazwa uczelni:
-                              <input type="text" name="university_name"><br>
+                              <input type="text" name="university_name" required><br>
                               Wydział uczelni:
-                                <input type="text" name="university_faculty"><br>
+                                <input type="text" name="university_faculty" required><br>
                                 Kierunek studiów:
-                                  <input type="text" name="field_of_study"><br>
+                                  <input type="text" name="field_of_study" required><br>
                                   Rok studiów:
-                                    <input type="text" name="year_of_study"><br>
+                                    <input type="text" name="year_of_study" required><br>
                                     Planowany rok ukończenia studiów:
-                                      <input type="text" name="planned_year_of_graduation"><br>
+                                      <input type="text" name="planned_year_of_graduation" required><br>
                                       Orzeczona kategoria zdolności<br> do czynnej służby wojskowej:
-                                        <input type="text" name="health_category"><br>
-                                          <input type="submit" value="wyślij">
+                                        <input type="text" name="health_category" required><br>
+                                          <input class="buttonZal" type="submit" value="wyślij">
                                         </form>                
                             
   </table>

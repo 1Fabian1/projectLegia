@@ -15,9 +15,17 @@
 </head>
 </head>
 <body >
+        <div>
+                <nav>
+                    <ul>
+                            <li><a href=mainPage.jsp>Strona Domowa</a></li>
+                            <li><a href=/register>Rejestracja</a></li>
+                            <li><a href=/login>Logowanie</a></li>
+                            <li><a href="/proposal">Wniosek</a></li>
+                    </ul>
+            </nav>
+        </div>
 <form method="POST" action = "/register">
-    <img src="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png" alt="" width="250"
-         height="220">
     <h1>Zarejestruj się</h1>
         <input type="text" name="inputUsername" placeholder="Nazwa użytkownika" required autofocus></p>
         <input type="password" name="inputPassword" placeholder="Hasło" required></p>
