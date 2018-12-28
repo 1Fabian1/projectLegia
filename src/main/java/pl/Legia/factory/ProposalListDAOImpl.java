@@ -44,7 +44,6 @@ public class ProposalListDAOImpl implements ProposalListDAO {
         if (updade > 0) {
             resultProposalList.setProposalListId((Long) holder.getKey());
         }
-
         return resultProposalList;
     }
 

@@ -5,6 +5,7 @@ import pl.Legia.factory.ProposalDAO;
 import pl.Legia.model.Proposal;
 
 import java.sql.Date;
+import java.util.List;
 
 public class ProposalService {
 
@@ -41,4 +42,14 @@ public class ProposalService {
         Proposal proposal = proposalDAO.getProposalById(proposalId);
         return proposal;
     }
+
+
+
+    public List<Proposal> getProposalByUserId(long userId){
+        DAOFactory daoFactory = DAOFactory.getDAOFactory();
+        ProposalDAO proposalDAO = daoFactory.getProposalDAO();
+        List<Proposal> proposals = proposalDAO.getProposalByUserId(userId);
+        return proposals;
+    }
+
 }

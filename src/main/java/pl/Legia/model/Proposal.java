@@ -45,6 +45,7 @@ public class Proposal {
         this.healthCategory = proposal.healthCategory;
     }
 
+
     public long getProposalId() {
         return proposalId;
     }

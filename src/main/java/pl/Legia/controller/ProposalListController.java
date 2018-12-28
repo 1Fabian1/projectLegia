@@ -15,21 +15,51 @@ import java.io.IOException;
 public class ProposalListController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        System.out.println("ProposalListController - Post");
+
+        request.setCharacterEncoding("UTF-8");
+
+        Proposal proposal = null;
+        User loggedUser = (User) request.getSession().getAttribute("user");
+        if(loggedUser != null){
+            long userId = loggedUser.getUser_id();
+            long proposalId = proposal.getProposalId();
+            System.out.println("Wartości usera i proposal" + userId + ", " + proposalId);
+
+            ProposalListService proposalListService = new ProposalListService();
+            proposalListService.addProposalList(userId, proposalId);
+            response.sendRedirect(request.getContextPath()+ "/mainPage");
+
+
+        }
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        ProposalService proposalService = new ProposalService();
+        System.out.println("ProposalListController - Get");
+
+        request.setCharacterEncoding("UTF-8");
+
+        Proposal proposal = new Proposal();
+        ProposalService proposalService = null;
         User loggedUser = (User) request.getSession().getAttribute("user");
+        System.out.println("Logged user ID: " + loggedUser.getUser_id());
         if(loggedUser != null){
-            long userUserId = loggedUser.getUser_id();
-            long proposalProposalId = 0; /////////wrong
+            long userId = loggedUser.getUser_id();
+            System.out.println("User ID "+ userId);
+            proposal = (Proposal) proposalService.getProposalByUserId(userId);
+            long proposalId = proposal.getProposalId();
+
+            System.out.println("Wartości usera i proposal" + userId + ", " + proposalId);
 
             ProposalListService proposalListService = new ProposalListService();
-            proposalListService.addProposalList(userUserId, proposalProposalId);
+            proposalListService.addProposalList(userId, proposalId);
+            response.sendRedirect(request.getContextPath()+ "/mainPage");
+
 
         }
 
     }
+
 }

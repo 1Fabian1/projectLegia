@@ -6,7 +6,7 @@ import pl.Legia.model.ProposalList;
 
 public class ProposalListService {
 
-    public void addProposalList(long userUserId, long proposalProposalId){
+    public ProposalList addProposalList(long userUserId, long proposalProposalId){
         ProposalList proposalList = new ProposalList();
         proposalList.setUserUserId(userUserId);
         proposalList.setProposalProposalId(proposalProposalId);
@@ -14,6 +14,7 @@ public class ProposalListService {
         ProposalListDAO proposalListDAO = factory.getProposalListDAO();
         proposalListDAO.create(proposalList);
 
+        return proposalList;
 
     }
 }

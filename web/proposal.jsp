@@ -17,15 +17,12 @@
         <nav>
             <ul>
                     <li><a href=mainPage.jsp>Strona Domowa</a></li>
-                    <li><a href=/register>Rejestracja</a></li>
-                    <li><a href=/login>Logowanie</a></li>
-                    <li><a href="/proposal">Wniosek</a></li>
-                    <li><a id="out" href="/logout">Wyloguj</a></li>
+                    <li><a href="/logout">Wyloguj</a></li>
             </ul>
     </nav>
 </div>
 
-<form method="POST" action="/proposal">
+<form class="forma" method="POST" action="/proposal">
     <h1>Wypełnij wniosek</h1>
         Imię:
           <input type="text" name="first_name" required><br>

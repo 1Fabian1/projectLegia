@@ -39,7 +39,9 @@ public class ProposalController extends HttpServlet {
         proposalService.addProposal(first_name, second_name, surname, citizenship, birth_date, birth_place, PESEL,
                 address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, field_of_study,
                 year_of_study, planned_year_of_graduation, health_category);
-        response.sendRedirect(request.getContextPath() + "/");
+        response.setStatus(307);
+        response.sendRedirect(request.getContextPath() + "/proposalList");
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
