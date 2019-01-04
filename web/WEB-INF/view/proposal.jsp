@@ -16,7 +16,7 @@
     <div>
         <nav>
             <ul>
-                    <li><a href=mainPage.jsp>Strona Domowa</a></li>
+                    <li><a href="/mainPage">Strona Domowa</a></li>
                     <li><a href="/logout">Wyloguj</a></li>
             </ul>
     </nav>

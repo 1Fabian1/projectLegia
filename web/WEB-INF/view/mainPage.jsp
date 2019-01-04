@@ -16,13 +16,13 @@
     <div>
         <nav>
             <ul>
-                    <li><a href=mainPage.jsp>Strona Domowa</a></li>
+                    <li><a href="/mainPage">Strona Domowa</a></li>
                     <li><a href="/proposal">Wniosek</a></li>
                     <li><a href="/logout">Wyloguj</a></li>
             </ul>
     </nav>
 </div>
-<h1>Witaj na stronie głównej</h1>
+<h1>Witaj na stronie MainPage</h1>
 <br>
 sesionScope.size: <c:out value="${sessionScope.size()}"/><br>
 sesionScope.values: <c:out value="${sessionScope.values()}"/><br>

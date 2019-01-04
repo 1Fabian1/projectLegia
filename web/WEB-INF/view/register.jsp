@@ -10,7 +10,7 @@
 <head>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png">
     <title>Zarejestruj się</title>
-    <link href="${pageContext.request.contextPath}/resources/css/singin.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
 
 </head>
 </head>
@@ -18,9 +18,9 @@
         <div>
                 <nav>
                     <ul>
-                            <li><a href=mainPage.jsp>Strona Domowa</a></li>
-                            <li><a href=/register>Rejestracja</a></li>
-                            <li><a href=/login>Logowanie</a></li>
+                            <li><a href="/mainPage">Strona Domowa</a></li>
+                            <li><a href="/register">Rejestracja</a></li>
+                            <li><a href="/login">Logowanie</a></li>
                             <li><a href="/proposal">Wniosek</a></li>
                     </ul>
             </nav>

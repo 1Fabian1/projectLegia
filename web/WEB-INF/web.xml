@@ -3,7 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/view/index.jsp</welcome-file>
+    </welcome-file-list>
 
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
@@ -33,6 +35,11 @@
     <servlet>
         <servlet-name>MainPageServlet</servlet-name>
         <servlet-class>pl.Legia.controller.MainPageController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.IndexController</servlet-class>
     </servlet>
     
 
@@ -66,6 +73,11 @@
         <servlet-name>MainPageServlet</servlet-name>
         <url-pattern>/mainPage</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
 
 
     <!-- Flitry -->
@@ -97,8 +109,8 @@
     <login-config>
         <auth-method>FORM</auth-method>
         <form-login-config>
-            <form-login-page>/login.jsp</form-login-page>
-            <form-error-page>/loginError.jsp</form-error-page>
+            <form-login-page>/WEB-INF/view/login.jsp</form-login-page>
+            <form-error-page>/WEB-INF/view/loginError.jsp</form-error-page>
         </form-login-config>
     </login-config>
 

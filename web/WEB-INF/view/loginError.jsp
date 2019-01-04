@@ -14,7 +14,7 @@
 <body>
   
 <h1>Błąd logowania</h1>
-<a href="login.jsp">Wróć do logowania</a>
+<a href="/login">Wróć do logowania</a>
 
 </body>
 </html>

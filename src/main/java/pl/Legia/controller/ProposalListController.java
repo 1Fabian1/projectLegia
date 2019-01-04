@@ -28,7 +28,7 @@ public class ProposalListController extends HttpServlet {
 
             ProposalListService proposalListService = new ProposalListService();
             proposalListService.addProposalList(userId, proposalId);
-            response.sendRedirect(request.getContextPath() + "/mainPage");
+            response.sendRedirect(request.getContextPath() + "WEB-INF/view//mainPage.jsp");
 
 
         }
@@ -56,7 +56,7 @@ public class ProposalListController extends HttpServlet {
 
             ProposalListService proposalListService = new ProposalListService();
             //proposalListService.addProposalList(userId, proposalId);
-            response.sendRedirect(request.getContextPath() + "/mainPage");
+            response.sendRedirect(request.getContextPath() + "/WEB-INF/view/mainPage");
 
 
         }

@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class MainPageController extends HttpServlet {
+public class IndexController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("MainPageController - Get");
-        response.sendRedirect(request.getContextPath() + "/");
+
+        System.out.println("IndexController - Get");
+        response.sendRedirect(request.getContextPath() + "/WEB-INF/view/index.jsp");
     }
 }

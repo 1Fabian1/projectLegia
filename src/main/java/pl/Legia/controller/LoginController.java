@@ -21,7 +21,7 @@ public class LoginController extends HttpServlet {
         saveUserInSession(request);
         System.out.println("LoginController - Get");
         if (request.getUserPrincipal() != null) {
-            response.sendRedirect(request.getContextPath() + "/mainPage.jsp");
+            response.sendRedirect(request.getContextPath() + "/mainPage");
         } else {
             response.sendError(403);
         }
