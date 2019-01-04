@@ -18,6 +18,8 @@ public class ProposalController extends HttpServlet {
         System.out.println("ProposalController - Post");
         request.setCharacterEncoding("UTF-8");
 
+        User loggedUser = (User) request.getSession().getAttribute("user");
+
         String first_name = request.getParameter("first_name");
         String second_name = request.getParameter("second_name");
         String surname = request.getParameter("surname");
@@ -34,11 +36,12 @@ public class ProposalController extends HttpServlet {
         String year_of_study = request.getParameter("year_of_study");
         String planned_year_of_graduation = request.getParameter("planned_year_of_graduation");
         String health_category = request.getParameter("health_category");
+        long user_id = loggedUser.getUser_id();
         System.out.println(first_name + " " + surname + " " + PESEL + " " + health_category);
         ProposalService proposalService = new ProposalService();
         proposalService.addProposal(first_name, second_name, surname, citizenship, birth_date, birth_place, PESEL,
                 address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, field_of_study,
-                year_of_study, planned_year_of_graduation, health_category);
+                year_of_study, planned_year_of_graduation, health_category, user_id);
         response.setStatus(307);
         response.sendRedirect(request.getContextPath() + "/proposalList");
 

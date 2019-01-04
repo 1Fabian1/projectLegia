@@ -21,14 +21,14 @@ public class ProposalListController extends HttpServlet {
 
         Proposal proposal = null;
         User loggedUser = (User) request.getSession().getAttribute("user");
-        if(loggedUser != null){
+        if (loggedUser != null) {
             long userId = loggedUser.getUser_id();
             long proposalId = proposal.getProposalId();
             System.out.println("Wartości usera i proposal" + userId + ", " + proposalId);
 
             ProposalListService proposalListService = new ProposalListService();
             proposalListService.addProposalList(userId, proposalId);
-            response.sendRedirect(request.getContextPath()+ "/mainPage");
+            response.sendRedirect(request.getContextPath() + "/mainPage");
 
 
         }
@@ -41,21 +41,22 @@ public class ProposalListController extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
-        Proposal proposal = new Proposal();
-        ProposalService proposalService = null;
+        Proposal proposal;
+        //ProposalService proposalService = (ProposalService) request.getSession().getAttribute("user");
         User loggedUser = (User) request.getSession().getAttribute("user");
         System.out.println("Logged user ID: " + loggedUser.getUser_id());
-        if(loggedUser != null){
+        if (loggedUser != null) {
             long userId = loggedUser.getUser_id();
-            System.out.println("User ID "+ userId);
-            proposal = (Proposal) proposalService.getProposalByUserId(userId);
-            long proposalId = proposal.getProposalId();
+            System.out.println("User ID " + userId);
 
-            System.out.println("Wartości usera i proposal" + userId + ", " + proposalId);
+          //  proposal = (Proposal) proposalService.getProposalByUserId(userId);
+            //long proposalId = proposal.getProposalId();
+
+            //System.out.println("Wartości usera i proposal" + userId + ", " + proposalId);
 
             ProposalListService proposalListService = new ProposalListService();
-            proposalListService.addProposalList(userId, proposalId);
-            response.sendRedirect(request.getContextPath()+ "/mainPage");
+            //proposalListService.addProposalList(userId, proposalId);
+            response.sendRedirect(request.getContextPath() + "/mainPage");
 
 
         }

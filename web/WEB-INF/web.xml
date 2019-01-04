@@ -30,6 +30,11 @@
         <servlet-class>pl.Legia.controller.ProposalListController</servlet-class>
     </servlet>
     
+    <servlet>
+        <servlet-name>MainPageServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.MainPageController</servlet-class>
+    </servlet>
+    
 
 
     <servlet-mapping>
@@ -56,6 +61,12 @@
         <servlet-name>ProposalListServlet</servlet-name>
         <url-pattern>/proposalList</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MainPageServlet</servlet-name>
+        <url-pattern>/mainPage</url-pattern>
+    </servlet-mapping>
+
 
     <!-- Flitry -->
     <security-constraint>
