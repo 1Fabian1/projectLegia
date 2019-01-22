@@ -42,6 +42,11 @@
         <servlet-class>pl.Legia.controller.IndexController</servlet-class>
     </servlet>
     
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.HomeController</servlet-class>
+    </servlet>
+    
 
 
     <servlet-mapping>
@@ -77,6 +82,11 @@
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
 
 

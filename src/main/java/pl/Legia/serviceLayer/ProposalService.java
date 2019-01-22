@@ -5,6 +5,7 @@ import pl.Legia.factory.ProposalDAO;
 import pl.Legia.model.Proposal;
 
 import java.sql.Date;
+import java.util.Comparator;
 import java.util.List;
 
 public class ProposalService {
@@ -49,8 +50,24 @@ public class ProposalService {
     public List<Proposal> getProposalByUserId(long userId){
         DAOFactory daoFactory = DAOFactory.getDAOFactory();
         ProposalDAO proposalDAO = daoFactory.getProposalDAO();
-        List<Proposal> proposals = proposalDAO.getProposalByUserId(userId);
+        List<Proposal> proposals = (List<Proposal>) proposalDAO.getProposalByUserId(userId);
         return proposals;
     }
+
+
+    public List<Proposal> getAllProposals(){
+        return getAllProposals(null);
+    }
+
+    public List<Proposal>getAllProposals(Comparator<Proposal>comparator){
+        DAOFactory factory = DAOFactory.getDAOFactory();
+        ProposalDAO proposalDAO = factory.getProposalDAO();
+        List<Proposal> proposals = proposalDAO.getAll();
+        if(comparator != null && proposals != null){
+            proposals.sort(comparator);
+        }
+        return proposals;
+    }
+
 
 }

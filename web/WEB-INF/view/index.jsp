@@ -23,11 +23,15 @@
 
     <c:choose>
   <c:when test="${not empty sessionScope.user}">
-   	<a href="/logout">Wyloguj się</a>
-      <a href="/mainPage">Strona główna</a>
-      <a href="/proposal">Podanie</a>
+      <p>Zalogowany</p><br>
+      <a href="/mainPage">Strona główna</a><br>
+      <a href="/proposal">Złóż podanie</a><br>
+      <a href="/logout">Wyloguj się</a><br>
+
+
   </c:when>
   <c:otherwise>
+      <p>Nie zalogowany</p>
  	<a class="plain" href="/login">Zaloguj się</a><br><br><br>
       <a class="plain" href="/register">Zarejestruj się</a>
  </c:otherwise>

@@ -29,6 +29,7 @@ public class ProposalDAOImpl implements ProposalDAO {
             "SELECT proposal_id ,first_name, second_name, surname, citizenship, birth_date, birth_place, PESEL,address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, field_of_study,year_of_study, planned_year_of_graduation, health_category, user_id" +
                     "FROM proposal WHERE proposal_id = :proposal_id;";
 
+
     private static final String READ_PROPOSAL_BY_USER_ID =
             "SELECT first_name,second_name,surname,citizenship,birth_date,birth_place, PESEL, address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, year_of_study, planned_year_of_graduation, health_category, user_id " +
                     "FROM " +
@@ -36,6 +37,11 @@ public class ProposalDAOImpl implements ProposalDAO {
                     "WHERE " +
                     "user_id = :user_id;";
 
+
+    //newer version
+    private static final String READ_PROPOSALS_BY_USER_ID = "select distinct proposal_id,first_name,second_name,surname,citizenship,birth_date,birth_place,PESEL,address_of_stay,address_for_correspondence,phone_number,university_name,university_faculty,field_of_study,year_of_study,planned_year_of_graduation,health_category,proposal.user_id " +
+            "from  proposal,proposal_list,user " +
+            "where proposal.user_id = :user_id;";
 
     private NamedParameterJdbcTemplate template;
 
@@ -99,7 +105,8 @@ public class ProposalDAOImpl implements ProposalDAO {
 
     @Override
     public List<Proposal> getAll() {
-        return null;
+        List<Proposal> proposals = template.query(READ_PROPOSAL_BY_USER_ID, new ProposalRowMapper());
+        return proposals;
     }
 
     @Override
@@ -114,17 +121,16 @@ public class ProposalDAOImpl implements ProposalDAO {
     public List<Proposal> getProposalByUserId(long userId) {
         List<Proposal> resultProposalList = new ArrayList<>();
         SqlParameterSource parameterSource = new MapSqlParameterSource("user_id", userId);
-        resultProposalList = (List<Proposal>) template.queryForObject(READ_PROPOSAL_BY_USER_ID, parameterSource, new ProposalRowMapper());
+        resultProposalList = (List<Proposal>) template.queryForObject(READ_PROPOSALS_BY_USER_ID, parameterSource, new ProposalRowMapper());
         return resultProposalList;
     }
 
-    public Proposal getProposalIdByUserId(long userId){
+    public Proposal getProposalIdByUserId(long userId) {
         Proposal resultProposal = new Proposal();
         SqlParameterSource parameterSource = new MapSqlParameterSource("id", resultProposal);
-        resultProposal = (Proposal) template.queryForObject(READ_PROPOSAL_BY_USER_ID,parameterSource, new ProposalRowMapper());
+        resultProposal = (Proposal) template.queryForObject(READ_PROPOSALS_BY_USER_ID, parameterSource, new ProposalRowMapper());
         return resultProposal;
     }
-
 
     private class ProposalRowMapper implements RowMapper {
         @Override

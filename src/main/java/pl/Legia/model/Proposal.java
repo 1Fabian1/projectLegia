@@ -1,6 +1,7 @@
 package pl.Legia.model;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Proposal {
@@ -49,6 +50,7 @@ public class Proposal {
         this.healthCategory = proposal.healthCategory;
         this.userId = proposal.userId;
     }
+
 
 
     public long getProposalId() {
