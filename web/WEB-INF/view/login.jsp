@@ -17,8 +17,8 @@
     
 <form action="j_security_check" method="POST">
     <h1 class="login"> Zaloguj się</h1>
-        <input class="inputer" type="text" name="j_username" placeholder="Nazwa użytkownika" required autofocus></p>
-        <input class="inputer" type="password" name="j_password" placeholder="Hasło" required></p>
+        <input class="inputer" type="text" name="j_username" placeholder="Nazwa użytkownika" maxlength="45" required autofocus></p>
+        <input class="inputer" type="password" name="j_password" placeholder="Hasło" maxlength="45" required></p>
         <button class="buttonZal" type="submit">Zaloguj</button><br>
         <p>Nie masz konta?</p><br>
         <a href="/register">Zarejestruj się</a>
