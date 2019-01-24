@@ -119,9 +119,9 @@ public class ProposalDAOImpl implements ProposalDAO {
 
     @Override
     public List<Proposal> getProposalByUserId(long userId) {
-        List<Proposal> resultProposalList = new ArrayList<>();
+        List<Proposal> resultProposalList;
         SqlParameterSource parameterSource = new MapSqlParameterSource("user_id", userId);
-        resultProposalList = (List<Proposal>) template.queryForObject(READ_PROPOSALS_BY_USER_ID, parameterSource, new ProposalRowMapper());
+        resultProposalList = template.query(READ_PROPOSALS_BY_USER_ID, parameterSource, new ProposalRowMapper());
         return resultProposalList;
     }
 
@@ -132,9 +132,9 @@ public class ProposalDAOImpl implements ProposalDAO {
         return resultProposal;
     }
 
-    private class ProposalRowMapper implements RowMapper {
+    private class ProposalRowMapper implements RowMapper<Proposal> {
         @Override
-        public Object mapRow(ResultSet resultSet, int row) throws SQLException {
+        public Proposal mapRow(ResultSet resultSet, int row) throws SQLException {
             Proposal proposal = new Proposal();
             proposal.setProposalId(resultSet.getLong("proposal_id"));
             proposal.setFirstName(resultSet.getString("first_name"));

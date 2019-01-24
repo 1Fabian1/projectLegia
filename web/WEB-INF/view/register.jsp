@@ -27,9 +27,12 @@
         </div>
 <form method="POST" action = "/register">
     <h1>Zarejestruj się</h1>
-        <input type="text" name="inputUsername" placeholder="Nazwa użytkownika" maxlength="45" required autofocus></p>
-        <input type="password" name="inputPassword" placeholder="Hasło" maxlength="45" required></p>
-        <input type="email" name="inputEmail" placeholder="Email address" maxlength="100" required></p>
+        <a href="/regulations">Regulamin</a><br>
+        <input type="checkbox" name="inputCheckbox" required>Akceptuję regulamin</p>
+        <input type="text" name="inputUsername" placeholder="Nazwa użytkownika" maxlength="45" required autofocus><br>
+        <input type="password" name="inputPassword" placeholder="Hasło" maxlength="45" required><br>
+        <input type="email" name="inputEmail" placeholder="Email address" maxlength="100" required><br>
+
         <button type="submit">Zarejestruj</button>
 
 </form>

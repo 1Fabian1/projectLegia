@@ -19,15 +19,14 @@
     <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
 </head>
 
-    <h1>Witaj na stronie Legii Akademickiej - index</h1>
+    <h1>Witaj na stronie Legii Akademickiej</h1>
 
     <c:choose>
   <c:when test="${not empty sessionScope.user}">
       <p>Zalogowany</p><br>
-      <a href="/mainPage">Strona główna</a><br>
       <a href="/proposal">Złóż podanie</a><br>
+      <a href="/proposalCatalog">Katalog podań</a><br>
       <a href="/logout">Wyloguj się</a><br>
-
 
   </c:when>
   <c:otherwise>

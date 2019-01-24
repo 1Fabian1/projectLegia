@@ -47,6 +47,15 @@
         <servlet-class>pl.Legia.controller.HomeController</servlet-class>
     </servlet>
     
+    <servlet>
+        <servlet-name>RegulationsServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.RegulationsController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ProposalCatalogServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.ProposalCatalogController</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -88,6 +97,17 @@
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>RegulationsServlet</servlet-name>
+        <url-pattern>/regulations</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ProposalCatalogServlet</servlet-name>
+        <url-pattern>/proposalCatalog</url-pattern>
+    </servlet-mapping>
+    
 
 
     <!-- Flitry -->

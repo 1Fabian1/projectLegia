@@ -25,13 +25,13 @@
 <form class="forma" method="POST" action="/proposal">
     <h1>Wypełnij wniosek</h1>
         Imię:
-          <input type="text" name="first_name" maxlength="45" placeholder="Jan" pattern="[a-z A-Z]{1,45}" required><br>
+          <input type="text" name="first_name" maxlength="45" placeholder="Jan" required><br>
           Drugie imie(niewymagane):
-            <input type="text" name="second_name" maxlength="45" placeholder="Adam" pattern="[a-z A-Z]{1,45}" ><br>
+            <input type="text" name="second_name" maxlength="45" placeholder="Adam" ><br>
             Nazwisko:
-              <input type="text" name="surname" maxlength="45" placeholder="Kowalski" pattern="[a-z A-Z]{1,45}" required><br>
+              <input type="text" name="surname" maxlength="45" placeholder="Kowalski" required><br>
               Narodowość:
-                <input type="text" name="citizenship"  maxlength="45" placeholder="Polska" pattern="[a-z A-Z]{1,45}" required><br>
+                <input type="text" name="citizenship"  maxlength="45" placeholder="Polska" required><br>
                 Data urodzenia:
                   <input type="date" name="birth_date" placeholder="1900-01-01" min="1900-01-01" required><br>
                   Miejsce urodzenia:
