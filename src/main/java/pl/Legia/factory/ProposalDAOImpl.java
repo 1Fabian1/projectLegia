@@ -25,23 +25,16 @@ public class ProposalDAOImpl implements ProposalDAO {
             "INSERT INTO proposal(first_name, second_name, surname, citizenship, birth_date, birth_place, PESEL,address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, field_of_study,year_of_study, planned_year_of_graduation, health_category, user_id) " +
                     "VALUES (:first_name, :second_name, :surname, :citizenship, :birth_date, :birth_place, :PESEL,:address_of_stay, :address_for_correspondence, :phone_number, :university_name, :university_faculty, :field_of_study, :year_of_study, :planned_year_of_graduation, :health_category, :user_id);";
 
-    private static final String READ_PROPOSAL_BY_ID =
-            "SELECT proposal_id ,first_name, second_name, surname, citizenship, birth_date, birth_place, PESEL,address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, field_of_study,year_of_study, planned_year_of_graduation, health_category, user_id" +
-                    "FROM proposal WHERE proposal_id = :proposal_id;";
-
-
-    private static final String READ_PROPOSAL_BY_USER_ID =
-            "SELECT first_name,second_name,surname,citizenship,birth_date,birth_place, PESEL, address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, year_of_study, planned_year_of_graduation, health_category, user_id " +
-                    "FROM " +
-                    "legiabase.proposal_list, proposal " +
-                    "WHERE " +
-                    "user_id = :user_id;";
-
-
     //newer version
     private static final String READ_PROPOSALS_BY_USER_ID = "select distinct proposal_id,first_name,second_name,surname,citizenship,birth_date,birth_place,PESEL,address_of_stay,address_for_correspondence,phone_number,university_name,university_faculty,field_of_study,year_of_study,planned_year_of_graduation,health_category,proposal.user_id " +
-            "from  proposal,proposal_list,user " +
+            "from  proposal,user " +
             "where proposal.user_id = :user_id;";
+
+    private static final String UPDATE_PROPOSAL = "UPDATE proposal " +
+            "SET first_name = :first_name, second_name = :second_name, surname = :surname, citizenship = :citizenship, birth_date = :birth_date, birth_place = :birth_place, " +
+            "PESEL = :PESEL, address_of_stay = :address_of_stay, address_for_correspondence = :address_for_correspondence, phone_number = :phone_number, university_name = :university_name, " +
+            "university_faculty = :university_faculty, field_of_study = :field_of_study, year_of_study = :year_of_study, planned_year_of_graduation = :planned_year_of_graduation, health_category = :health_category " +
+            "where user_id = :user_id";
 
     private NamedParameterJdbcTemplate template;
 
@@ -52,7 +45,6 @@ public class ProposalDAOImpl implements ProposalDAO {
     @Override
     public Proposal create(Proposal proposal) {
         Proposal resultProposal = new Proposal();
-        Proposal proposal1KeyHolder = new Proposal();
         KeyHolder holder = new GeneratedKeyHolder();
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("first_name", proposal.getFirstName());
@@ -72,8 +64,6 @@ public class ProposalDAOImpl implements ProposalDAO {
         paramMap.put("planned_year_of_graduation", proposal.getPlannedYearOfGraduation());
         paramMap.put("health_category", proposal.getHealthCategory());
         paramMap.put("user_id", proposal.getUserId());
-        System.out.println("ProposalDAOImpl health_category:" + proposal.getHealthCategory());
-
 
         SqlParameterSource parameterSource = new MapSqlParameterSource(paramMap);
         int update = template.update(CREATE_PROPOSAL, parameterSource, holder);
@@ -89,7 +79,7 @@ public class ProposalDAOImpl implements ProposalDAO {
     public Proposal read(Long primaryKey) {
         Proposal resultProposal = new Proposal();
         SqlParameterSource parameterSource = new MapSqlParameterSource("id", primaryKey);
-        resultProposal = (Proposal) template.queryForObject(READ_PROPOSAL_BY_ID, parameterSource, new ProposalRowMapper());
+        resultProposal = template.queryForObject(READ_PROPOSALS_BY_USER_ID, parameterSource, new ProposalRowMapper());
         return resultProposal;
     }
 
@@ -105,7 +95,7 @@ public class ProposalDAOImpl implements ProposalDAO {
 
     @Override
     public List<Proposal> getAll() {
-        List<Proposal> proposals = template.query(READ_PROPOSAL_BY_USER_ID, new ProposalRowMapper());
+        List<Proposal> proposals = template.query(READ_PROPOSALS_BY_USER_ID, new ProposalRowMapper());
         return proposals;
     }
 
@@ -113,7 +103,7 @@ public class ProposalDAOImpl implements ProposalDAO {
     public Proposal getProposalById(long proposalId) {
         Proposal resultProposal = new Proposal();
         SqlParameterSource parameterSource = new MapSqlParameterSource("id", proposalId);
-        resultProposal = (Proposal) template.queryForObject(READ_PROPOSAL_BY_ID, parameterSource, new ProposalRowMapper());
+        resultProposal = template.queryForObject(READ_PROPOSALS_BY_USER_ID, parameterSource, new ProposalRowMapper());
         return resultProposal;
     }
 
@@ -125,18 +115,39 @@ public class ProposalDAOImpl implements ProposalDAO {
         return resultProposalList;
     }
 
-    public Proposal getProposalIdByUserId(long userId) {
-        Proposal resultProposal = new Proposal();
-        SqlParameterSource parameterSource = new MapSqlParameterSource("id", resultProposal);
-        resultProposal = (Proposal) template.queryForObject(READ_PROPOSALS_BY_USER_ID, parameterSource, new ProposalRowMapper());
-        return resultProposal;
+    @Override
+    public Proposal updateProposal(Proposal proposal) {
+        Proposal updateProposal = new Proposal();
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("first_name", proposal.getFirstName());
+        paramMap.put("second_name", proposal.getSecondName());
+        paramMap.put("surname", proposal.getSurname());
+        paramMap.put("citizenship", proposal.getCitizenship());
+        paramMap.put("birth_date", proposal.getBirthDate());
+        paramMap.put("birth_place", proposal.getBirthPlace());
+        paramMap.put("PESEL", proposal.getPESEL());
+        paramMap.put("address_of_stay", proposal.getAddressOfStay());
+        paramMap.put("address_for_correspondence", proposal.getAddressOfCorrespondence());
+        paramMap.put("phone_number", proposal.getPhoneNumber());
+        paramMap.put("university_name", proposal.getUniversityName());
+        paramMap.put("university_faculty", proposal.getUniversityFaculty());
+        paramMap.put("field_of_study", proposal.getFieldOfStudy());
+        paramMap.put("year_of_study", proposal.getYearOfStudy());
+        paramMap.put("planned_year_of_graduation", proposal.getPlannedYearOfGraduation());
+        paramMap.put("health_category", proposal.getHealthCategory());
+        paramMap.put("user_id", proposal.getUserId());
+
+        SqlParameterSource parameterSource = new MapSqlParameterSource(paramMap);
+        template.update(UPDATE_PROPOSAL, parameterSource);
+
+        return updateProposal;
     }
+
 
     private class ProposalRowMapper implements RowMapper<Proposal> {
         @Override
         public Proposal mapRow(ResultSet resultSet, int row) throws SQLException {
             Proposal proposal = new Proposal();
-            proposal.setProposalId(resultSet.getLong("proposal_id"));
             proposal.setFirstName(resultSet.getString("first_name"));
             proposal.setSecondName(resultSet.getString("second_name"));
             proposal.setSurname(resultSet.getString("surname"));
@@ -153,7 +164,6 @@ public class ProposalDAOImpl implements ProposalDAO {
             proposal.setYearOfStudy(resultSet.getString("year_of_study"));
             proposal.setPlannedYearOfGraduation(resultSet.getString("planned_year_of_graduation"));
             proposal.setHealthCategory(resultSet.getString("health_category"));
-            proposal.setUserId(resultSet.getLong("user_id"));
             return proposal;
         }
     }

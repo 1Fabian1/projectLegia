@@ -15,32 +15,41 @@
 </head>
 <body>
 Katalog podań<br><br>
-<c:forEach var="proposal" items="${proposals}">
+a  <c:out value="${sessionScope}"/>
+<c:forEach var="iterator" varStatus="number" items="1">
+    <c:forEach var="proposal" items="${proposals}">
 
 
-    Imię: <c:out value="${proposal.firstName}"/><br>
-    Drugie Imię: <c:out value="${proposal.secondName}"/><br>
-    Nazwisko: <c:out value="${proposal.surname}"/><br>
-    Obywatelstwo: <c:out value="${proposal.citizenship}"/><br>
-    Data urodzenia: <c:out value="${proposal.birthDate}"/><br>
-    Miejsce urodzenia: <c:out value="${proposal.birthPlace}"/><br>
-    PESEL: <c:out value="${proposal.PESEL}"/><br>
-    Adres zamieszkania: <c:out value="${proposal.addressOfStay}"/><br>
-    Adres do korespondencji: <c:out value="${proposal.addressOfCorrespondence}"/><br>
-    Numer telefonu: <c:out value="${proposal.phoneNumber}"/><br>
-    Nazwa uniwersytetu: <c:out value="${proposal.universityName}"/><br>
-    Wydział uniwersytetu: <c:out value="${proposal.universityFaculty}"/><br>
-    Kierunek studiów: <c:out value="${proposal.fieldOfStudy}"/><br>
-    Rok studiów: <c:out value="${proposal.yearOfStudy}"/><br>
-    Planowany rok ukończenia: <c:out value="${proposal.plannedYearOfGraduation}"/><br>
-    Kategoria zdrowia: <c:out value="${proposal.healthCategory}"/><br>
+        <div id="center">
+            <table border="1">
+                <tr>
+                    <td>
 
-    <br>
-
+                        Nr podania: <c:out value="${iterator}"/><br>
+                        Imię: <c:out value="${proposal.firstName}"/><br>
+                        Drugie Imię: <c:out value="${proposal.secondName}"/><br>
+                        Nazwisko: <c:out value="${proposal.surname}"/><br>
+                        Obywatelstwo: <c:out value="${proposal.citizenship}"/><br>
+                        Data urodzenia: <c:out value="${proposal.birthDate}"/><br>
+                        Miejsce urodzenia: <c:out value="${proposal.birthPlace}"/><br>
+                        PESEL: <c:out value="${proposal.PESEL}"/><br>
+                        Adres zamieszkania: <c:out value="${proposal.addressOfStay}"/><br>
+                        Adres do korespondencji: <c:out value="${proposal.addressOfCorrespondence}"/><br>
+                        Numer telefonu: <c:out value="${proposal.phoneNumber}"/><br>
+                        Nazwa uniwersytetu: <c:out value="${proposal.universityName}"/><br>
+                        Wydział uniwersytetu: <c:out value="${proposal.universityFaculty}"/><br>
+                        Kierunek studiów: <c:out value="${proposal.fieldOfStudy}"/><br>
+                        Rok studiów: <c:out value="${proposal.yearOfStudy}"/><br>
+                        Planowany rok ukończenia: <c:out value="${proposal.plannedYearOfGraduation}"/><br>
+                        Kategoria zdrowia: <c:out value="${proposal.healthCategory}"/><br>
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+        <c:set var="iterator" value="${iterator+1}"/>
+    </c:forEach>
 </c:forEach>
-
-
-
 <br>
 <a href="/mainPage">Wróć na stronę główną</a>
 </body>

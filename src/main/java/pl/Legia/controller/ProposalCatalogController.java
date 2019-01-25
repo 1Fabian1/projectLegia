@@ -23,7 +23,7 @@ public class ProposalCatalogController extends HttpServlet {
 
         User loggedUser = (User) request.getSession().getAttribute("user");
         System.out.println(loggedUser.toString());
-        long user = (long) loggedUser.getUser_id();
+        long user = loggedUser.getUser_id();
         ProposalService proposalService = new ProposalService();
         List<Proposal> proposals = proposalService.getProposalByUserId(user);
 

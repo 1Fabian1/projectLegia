@@ -182,7 +182,7 @@ public class Proposal {
     }
 
     public String getHealthCategory() {
-        System.out.println("ProposalClass health_category getter: " + healthCategory);
+        //System.out.println("ProposalClass health_category getter: " + healthCategory);
         return healthCategory;
     }
 

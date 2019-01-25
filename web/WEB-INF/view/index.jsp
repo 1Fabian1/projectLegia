@@ -25,8 +25,10 @@
   <c:when test="${not empty sessionScope.user}">
       <p>Zalogowany</p><br>
       <a href="/proposal">Złóż podanie</a><br>
+      <a href="/updateProposal">Popraw podanie</a><br>
       <a href="/proposalCatalog">Katalog podań</a><br>
       <a href="/logout">Wyloguj się</a><br>
+       a  <c:out value="${proposals}"/>
 
   </c:when>
   <c:otherwise>

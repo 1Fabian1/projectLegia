@@ -57,6 +57,11 @@
         <servlet-class>pl.Legia.controller.ProposalCatalogController</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>UpdateProposalServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.UpdateProposalController</servlet-class>
+    </servlet>
+
 
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
@@ -108,6 +113,10 @@
         <url-pattern>/proposalCatalog</url-pattern>
     </servlet-mapping>
     
+    <servlet-mapping>
+        <servlet-name>UpdateProposalServlet</servlet-name>
+        <url-pattern>/updateProposal</url-pattern>
+    </servlet-mapping>
 
 
     <!-- Flitry -->

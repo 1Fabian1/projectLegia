@@ -35,7 +35,7 @@
                 Data urodzenia:
                   <input type="date" name="birth_date" placeholder="1900-01-01" min="1900-01-01" required><br>
                   Miejsce urodzenia:
-                    <input type="text" name="birth_place" maxlength="45" placeholder="ul. Uliczna, 00-000 Miejscowość" required><br>
+                    <input type="text" name="birth_place" maxlength="45" placeholder="Miejscowość" required><br>
                     Pesel:
                       <input type="text" name="PESEL" maxlength="11" placeholder="12345678901" required><br>
                       Adres pobytu stałego:
