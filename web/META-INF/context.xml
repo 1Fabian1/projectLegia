@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Context >
-
+<Context>
 
     <Resource
             name="jdbc/legiabase"
@@ -24,4 +23,5 @@
             userRoleTable="user_role"
             roleNameCol="role_name"
             localDataSource="true"/>
+
 </Context>

@@ -14,36 +14,59 @@
     <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
 </head>
 <body>
-Katalog podań<br><br>
-a  <c:out value="${sessionScope}"/>
 <c:forEach var="iterator" varStatus="number" items="1">
     <c:forEach var="proposal" items="${proposals}">
-
-
-        <div id="center">
-            <table border="1">
+        <div>
+            <table class="showProposal" border = "1">
                 <tr>
-                    <td>
-
-                        Nr podania: <c:out value="${iterator}"/><br>
-                        Imię: <c:out value="${proposal.firstName}"/><br>
-                        Drugie Imię: <c:out value="${proposal.secondName}"/><br>
-                        Nazwisko: <c:out value="${proposal.surname}"/><br>
-                        Obywatelstwo: <c:out value="${proposal.citizenship}"/><br>
-                        Data urodzenia: <c:out value="${proposal.birthDate}"/><br>
-                        Miejsce urodzenia: <c:out value="${proposal.birthPlace}"/><br>
-                        PESEL: <c:out value="${proposal.PESEL}"/><br>
-                        Adres zamieszkania: <c:out value="${proposal.addressOfStay}"/><br>
-                        Adres do korespondencji: <c:out value="${proposal.addressOfCorrespondence}"/><br>
-                        Numer telefonu: <c:out value="${proposal.phoneNumber}"/><br>
-                        Nazwa uniwersytetu: <c:out value="${proposal.universityName}"/><br>
-                        Wydział uniwersytetu: <c:out value="${proposal.universityFaculty}"/><br>
-                        Kierunek studiów: <c:out value="${proposal.fieldOfStudy}"/><br>
-                        Rok studiów: <c:out value="${proposal.yearOfStudy}"/><br>
-                        Planowany rok ukończenia: <c:out value="${proposal.plannedYearOfGraduation}"/><br>
-                        Kategoria zdrowia: <c:out value="${proposal.healthCategory}"/><br>
-                    </td>
-                </tr>
+                    <td>Imię: </td> <td> <c:out value="${proposal.firstName}"/></td>
+                </tr>    
+                <tr>                       
+                       <td> Drugie Imię:</td><td> <c:out value="${proposal.secondName}"/></td>
+                    </tr>
+                    <tr>
+                        <td> Nazwisko: </td> <td> <c:out value="${proposal.surname}"/></td>
+                    </tr>
+                    <tr>
+                        
+                        <td> Obywatelstwo: </td> <td> <c:out value="${proposal.citizenship}"/> </td>
+                    </tr>
+                    <tr>
+                        <td> Data urodzenia: </td> <td> <c:out value="${proposal.birthDate}"/></td>
+                    </tr>
+                    <tr>
+                        <td> Miejsce urodzenia: </td> <td> <c:out value="${proposal.birthPlace}"/></td>
+                    </tr>
+                    <tr>
+                        <td> PESEL: </td> <td> <c:out value="${proposal.PESEL}"/> </td>
+                    </tr>
+                    <tr>
+                        <td>Adres zamieszkania: </td> <td> <c:out value="${proposal.addressOfStay}"/></td>
+                    </tr>
+                    <tr>
+                        <td> Adres do korespondencji: </td> <td> <c:out value="${proposal.addressOfCorrespondence}"/></td>
+                    </tr>
+                    <tr>
+                       <td> Numer telefonu: </td> <td> <c:out value="${proposal.phoneNumber}"/></td>
+                    </tr>
+                    <tr>
+                        <td> Nazwa uniwersytetu: </td> <td> <c:out value="${proposal.universityName}"/> </td>
+                    </tr>
+                    <tr>
+                       <td> Wydział uniwersytetu: </td> <td> <c:out value="${proposal.universityFaculty}"/></td>
+                    </tr>
+                    <tr>
+                       <td> Kierunek studiów: </td> <td> <c:out value="${proposal.fieldOfStudy}"/> </td>
+                    </tr>
+                    <tr>
+                        <td> Rok studiów: </td> <td> <c:out value="${proposal.yearOfStudy}"/> </td>
+                    </tr>
+                    <tr>
+                        <td> Planowany rok ukończenia: </td> <td> <c:out value="${proposal.plannedYearOfGraduation}"/></td>
+                    </tr>
+                    <tr>
+                        <td> Kategoria zdrowia: </td><td> <c:out value="${proposal.healthCategory}"/></td>
+                    </tr>
             </table>
             <br>
         </div>
