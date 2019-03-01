@@ -1,15 +1,14 @@
 package pl.Legia.model;
 
 import java.sql.Date;
-import java.util.List;
 import java.util.Objects;
 
 public class Proposal {
 
     private long proposalId;
     private String firstName;
-    private String secondName;
     private String surname;
+    private String fatherName;
     private String citizenship;
     private Date birthDate;
     private String birthPlace;
@@ -23,6 +22,8 @@ public class Proposal {
     private String yearOfStudy;
     private String plannedYearOfGraduation;
     private String healthCategory;
+    private String crime_record;
+    private String album_number;
 
 
     private long userId;
@@ -33,8 +34,8 @@ public class Proposal {
     public Proposal(Proposal proposal) {
         this.proposalId = proposal.proposalId;
         this.firstName = proposal.firstName;
-        this.secondName = proposal.secondName;
         this.surname = proposal.surname;
+        this.fatherName = proposal.fatherName;
         this.citizenship = proposal.citizenship;
         this.birthDate = proposal.birthDate;
         this.birthPlace = proposal.birthPlace;
@@ -48,6 +49,8 @@ public class Proposal {
         this.yearOfStudy = proposal.yearOfStudy;
         this.plannedYearOfGraduation = proposal.plannedYearOfGraduation;
         this.healthCategory = proposal.healthCategory;
+        this.crime_record = proposal.crime_record;
+        this.album_number = proposal.album_number;
         this.userId = proposal.userId;
     }
 
@@ -67,14 +70,6 @@ public class Proposal {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
     }
 
     public String getSurname() {
@@ -198,6 +193,29 @@ public class Proposal {
         this.userId = userId;
     }
 
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    public void setFatherName(String fatherName) {
+        this.fatherName = fatherName;
+    }
+
+    public String getCrime_record() {
+        return crime_record;
+    }
+
+    public void setCrime_record(String crime_record) {
+        this.crime_record = crime_record;
+    }
+
+    public String getAlbum_number() {
+        return album_number;
+    }
+
+    public void setAlbum_number(String album_number) {
+        this.album_number = album_number;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -207,8 +225,8 @@ public class Proposal {
         return getProposalId() == proposal.getProposalId() &&
                 getUserId() == proposal.getUserId() &&
                 Objects.equals(getFirstName(), proposal.getFirstName()) &&
-                Objects.equals(getSecondName(), proposal.getSecondName()) &&
                 Objects.equals(getSurname(), proposal.getSurname()) &&
+                Objects.equals(getFatherName(), proposal.getFatherName()) &&
                 Objects.equals(getCitizenship(), proposal.getCitizenship()) &&
                 Objects.equals(getBirthDate(), proposal.getBirthDate()) &&
                 Objects.equals(getBirthPlace(), proposal.getBirthPlace()) &&
@@ -221,12 +239,14 @@ public class Proposal {
                 Objects.equals(getFieldOfStudy(), proposal.getFieldOfStudy()) &&
                 Objects.equals(getYearOfStudy(), proposal.getYearOfStudy()) &&
                 Objects.equals(getPlannedYearOfGraduation(), proposal.getPlannedYearOfGraduation()) &&
-                Objects.equals(getHealthCategory(), proposal.getHealthCategory());
+                Objects.equals(getHealthCategory(), proposal.getHealthCategory()) &&
+                Objects.equals(getCrime_record(), proposal.getCrime_record()) &&
+                Objects.equals(getAlbum_number(), proposal.getAlbum_number());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getProposalId(), getFirstName(), getSecondName(), getSurname(), getCitizenship(), getBirthDate(), getBirthPlace(), getPESEL(), getAddressOfStay(), getAddressOfCorrespondence(), getPhoneNumber(), getUniversityName(), getUniversityFaculty(), getFieldOfStudy(), getYearOfStudy(), getPlannedYearOfGraduation(), getHealthCategory(), getUserId());
+        return Objects.hash(getProposalId(), getFirstName(), getSurname(), getFatherName(), getCitizenship(), getBirthDate(), getBirthPlace(), getPESEL(), getAddressOfStay(), getAddressOfCorrespondence(), getPhoneNumber(), getUniversityName(), getUniversityFaculty(), getFieldOfStudy(), getYearOfStudy(), getPlannedYearOfGraduation(), getHealthCategory(), getCrime_record(), getAlbum_number(), getUserId());
     }
 
     @Override
@@ -234,8 +254,8 @@ public class Proposal {
         return "Proposal{" +
                 "proposalId=" + proposalId +
                 ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
                 ", surname='" + surname + '\'' +
+                ", fatherName='" + fatherName + '\'' +
                 ", citizenship='" + citizenship + '\'' +
                 ", birthDate=" + birthDate +
                 ", birthPlace='" + birthPlace + '\'' +
@@ -249,6 +269,8 @@ public class Proposal {
                 ", yearOfStudy='" + yearOfStudy + '\'' +
                 ", plannedYearOfGraduation='" + plannedYearOfGraduation + '\'' +
                 ", healthCategory='" + healthCategory + '\'' +
+                ", crime_record='" + crime_record + '\'' +
+                ", album_number='" + album_number + '\'' +
                 ", userId=" + userId +
                 '}';
     }

@@ -18,25 +18,54 @@
     <title>Witaj na stronie Legii Akademickiej</title>
     <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
 </head>
+<ul>
+    <li><a href="/mainPage">Strona domowa</a></li>
+    <li><a href="/logout">Wyloguj się</a><br></li>
+</ul>
 
-    <h1>Witaj na stronie Legii Akademickiej</h1>
+<h1>Witaj na stronie Legii Akademickiej</h1>
+<c:choose>
+    <c:when test="${not empty sessionScope.user}">
 
-    <c:choose>
-  <c:when test="${not empty sessionScope.user}">
-      <p>Zalogowany</p><br>
-      <a href="/proposal">Złóż podanie</a><br>
-      <a href="/updateProposal">Popraw podanie</a><br>
-      <a href="/proposalCatalog">Katalog podań</a><br>
-      <a href="/logout">Wyloguj się</a><br>
-       a  <c:out value="${proposals}"/>
 
-  </c:when>
-  <c:otherwise>
-      <p>Nie zalogowany</p>
- 	<a class="plain" href="/login">Zaloguj się</a><br><br><br>
-      <a class="plain" href="/register">Zarejestruj się</a>
- </c:otherwise>
+        <p>akcje do wykonania</p>
+        <a href="/proposal">Złóż podanie</a><br>
+        <a href="/updateProposal">Popraw podanie</a><br>
+
+        <p>Materiały do pobrania</p>
+        <a href="/proposalCatalog">Katalog podań</a><br>
+        <a href="/ordinance">Zarządzenie</a><br>
+        <a href="/schedule">Plan zajęć</a><br>
+        <a href="/statute">Regualmin</a><br>
+
+        <c:choose>
+            <c:when test="${not empty sessionScope.admin}">
+                <br>
+                <c:out value="${sessionScope.admin}"></c:out>
+                <p>Panel Admina</p>
+
+                <button type="button" size="10px">
+                    <jsp:useBean id="sendEmail" class="pl.Legia.services.SendEmail"/>
+                        ${sendEmail.sendEmail()}
+                    Send Email
+                </button>
+            </c:when>
+        </c:choose>
+
+    </c:when>
+    <c:otherwise>
+        <p>Nie zalogowany</p>
+        <a class="plain" href="/login">Zaloguj się</a><br><br><br>
+        <a class="plain" href="/register">Zarejestruj się</a>
+    </c:otherwise>
 </c:choose>
+
+<footer>
+    <p>Developed by: Fabian Bogusławski</p>
+    <p>Contact: <a href="mailto:fab123@student.ukw.edu.pl">
+        fab123@student.ukw.edu.pl</a>.</p>
+</footer>
+</div>
 </body>
 </html>
 

@@ -23,7 +23,8 @@ public class UserDAOImpl implements UserDAO {
             "SELECT user_id, username, password, email FROM user WHERE user_id=:id;";
     private static final String READ_USER_BY_USERNAME =
             "SELECT user_id, username, password, email FROM user WHERE username=:username;";
-    ;
+
+    private static final String READ_IF_ADMIN = "select user.user_id, user.username, user.password, user.email from user_role, user Where user.username = user_role.username and user_role.role_name = \"admin\" and user.username = :username";
 
     private NamedParameterJdbcTemplate template;
 
@@ -59,6 +60,13 @@ public class UserDAOImpl implements UserDAO {
         return resultUser;
     }
 
+    public User checkIfAdmin(String username) {
+        User resultUser = null;
+        SqlParameterSource parameterSource = new MapSqlParameterSource("username", username);
+        resultUser = (User) template.queryForObject(READ_IF_ADMIN, parameterSource, new UserRowMapper());
+        return resultUser;
+    }
+
     @Override
     public boolean update(User updateObject) {
         return false;
@@ -81,7 +89,6 @@ public class UserDAOImpl implements UserDAO {
         resultUser = (User) template.queryForObject(READ_USER_BY_USERNAME, paramSource, new UserRowMapper());
         return resultUser;
     }
-
 
 
     private class UserRowMapper implements RowMapper {

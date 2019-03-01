@@ -20,8 +20,8 @@ public class UpdateProposalController extends HttpServlet {
         User loggedUser = (User) request.getSession().getAttribute("user");
 
         String first_name = request.getParameter("first_name");
-        String second_name = request.getParameter("second_name");
         String surname = request.getParameter("surname");
+        String father_name = request.getParameter("father_name");
         String citizenship = request.getParameter("citizenship");
         Date birth_date = Date.valueOf(request.getParameter("birth_date"));
         String birth_place = request.getParameter("birth_place");
@@ -35,12 +35,16 @@ public class UpdateProposalController extends HttpServlet {
         String year_of_study = request.getParameter("year_of_study");
         String planned_year_of_graduation = request.getParameter("planned_year_of_graduation");
         String health_category = request.getParameter("health_category");
+        String crime_record = request.getParameter("crime_record");
+        String album_number = request.getParameter("album_number");
         long user_id = loggedUser.getUser_id();
         ProposalService proposalService = new ProposalService();
 
-        proposalService.updateProposal(first_name, second_name, surname, citizenship, birth_date, birth_place, PESEL,
+
+        System.out.println("firstName in update: " + first_name);
+        proposalService.updateProposal(first_name, surname, father_name, citizenship, birth_date, birth_place, PESEL,
                 address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, field_of_study,
-                year_of_study, planned_year_of_graduation, health_category, user_id);
+                year_of_study, planned_year_of_graduation, health_category, crime_record, album_number, user_id);
         response.setStatus(307);
         response.sendRedirect(request.getContextPath() + "/mainPage");
 

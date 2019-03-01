@@ -5,12 +5,12 @@
             name="jdbc/legiabase"
             auth="Container"
             type="javax.sql.DataSource"
-            initialSize="10"
-            maxTotal="100"
+            initialSize="30"
+            maxTotal="1000"
             maxIdle="30"
             maxWaitMillis="10000"
-            username="root"
-            password=""
+            username="legiaLocal"
+            password="haslo"
             driverClassName="com.mysql.jdbc.Driver"
             url="jdbc:mysql://localhost:3306/legiabase"/>
 

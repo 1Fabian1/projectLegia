@@ -61,6 +61,21 @@
         <servlet-name>UpdateProposalServlet</servlet-name>
         <servlet-class>pl.Legia.controller.UpdateProposalController</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>OrdinanceServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.OrdinanceController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ScheduleServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.ScheduleController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>StatuteServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.StatuteController</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -117,6 +132,21 @@
         <servlet-name>UpdateProposalServlet</servlet-name>
         <url-pattern>/updateProposal</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>OrdinanceServlet</servlet-name>
+        <url-pattern>/ordinance</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ScheduleServlet</servlet-name>
+        <url-pattern>/schedule</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>StatuteServlet</servlet-name>
+        <url-pattern>/statute</url-pattern>
+    </servlet-mapping>
 
 
     <!-- Flitry -->
@@ -126,11 +156,14 @@
             <web-resource-name>Auth</web-resource-name>
             <description>Resources that can be accessed after login</description>
             <url-pattern>/proposal</url-pattern>
-            <url-pattern>/proposal.jsp</url-pattern>
             <url-pattern>/login</url-pattern>
-            <url-pattern>/mainPage.jsp</url-pattern>
             <url-pattern>/mainPage</url-pattern>
             <url-pattern>/proposalList</url-pattern>
+            <url-pattern>/proposalCatalog</url-pattern>
+            <url-pattern>/statute</url-pattern>
+            <url-pattern>/ordinance</url-pattern>
+            <url-pattern>/schedule</url-pattern>
+            <url-pattern>/updateProposal</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>

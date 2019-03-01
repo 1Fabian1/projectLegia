@@ -30,4 +30,11 @@ public class UserService {
         return user;
     }
 
+    public User checkIfAdmin(String username){
+        DAOFactory factory = DAOFactory.getDAOFactory();
+        UserDAO userDAO = factory.getUserDAO();
+        User admin = userDAO.checkIfAdmin(username);
+        return admin;
+    }
+
 }

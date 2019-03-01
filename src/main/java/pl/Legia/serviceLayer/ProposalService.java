@@ -10,15 +10,15 @@ import java.util.List;
 
 public class ProposalService {
 
-    public void addProposal(String first_name, String second_name, String surname, String citizenship, Date birth_date,
+    public void addProposal(String first_name, String surname, String father_name, String citizenship, Date birth_date,
                             String birth_place, String PESEL, String address_of_stay, String address_for_correspondence,
                             String phone_number, String university_name, String university_faculty,
-                            String field_of_study, String year_of_study, String planned_year_of_graduation, String health_category, long user_id) {
+                            String field_of_study, String year_of_study, String planned_year_of_graduation, String health_category, String crime_record, String album_number, long user_id) {
         Proposal proposal = new Proposal();
 
         proposal.setFirstName(first_name);
-        proposal.setSecondName(second_name);
         proposal.setSurname(surname);
+        proposal.setFatherName(father_name);
         proposal.setCitizenship(citizenship);
         proposal.setBirthDate(birth_date);
         proposal.setBirthPlace(birth_place);
@@ -32,35 +32,37 @@ public class ProposalService {
         proposal.setYearOfStudy(year_of_study);
         proposal.setPlannedYearOfGraduation(planned_year_of_graduation);
         proposal.setHealthCategory(health_category);
+        proposal.setCrime_record(crime_record);
+        proposal.setAlbum_number(album_number);
         proposal.setUserId(user_id);
         DAOFactory factory = DAOFactory.getDAOFactory();
         ProposalDAO proposalDAO = factory.getProposalDAO();
         proposalDAO.create(proposal);
     }
 
-    public Proposal getProposalById(long proposalId){
+    public Proposal getProposalById(long proposalId) {
         DAOFactory daoFactory = DAOFactory.getDAOFactory();
         ProposalDAO proposalDAO = daoFactory.getProposalDAO();
         Proposal proposal = proposalDAO.getProposalById(proposalId);
         return proposal;
     }
 
-    public List<Proposal> getProposalByUserId(long userId){
+    public List<Proposal> getProposalByUserId(long userId) {
         DAOFactory daoFactory = DAOFactory.getDAOFactory();
         ProposalDAO proposalDAO = daoFactory.getProposalDAO();
         List<Proposal> proposals = (List<Proposal>) proposalDAO.getProposalByUserId(userId);
         return proposals;
     }
 
-    public void  updateProposal(String first_name, String second_name, String surname, String citizenship, Date birth_date,
-                                String birth_place, String PESEL, String address_of_stay, String address_for_correspondence,
-                                String phone_number, String university_name, String university_faculty,
-                                String field_of_study, String year_of_study, String planned_year_of_graduation, String health_category, long user_id){
+    public void updateProposal(String first_name, String surname, String father_name, String citizenship, Date birth_date,
+                               String birth_place, String PESEL, String address_of_stay, String address_for_correspondence,
+                               String phone_number, String university_name, String university_faculty,
+                               String field_of_study, String year_of_study, String planned_year_of_graduation, String health_category, String crime_record, String album_number, long user_id) {
         Proposal proposal = new Proposal();
 
         proposal.setFirstName(first_name);
-        proposal.setSecondName(second_name);
         proposal.setSurname(surname);
+        proposal.setFatherName(father_name);
         proposal.setCitizenship(citizenship);
         proposal.setBirthDate(birth_date);
         proposal.setBirthPlace(birth_place);
@@ -74,6 +76,8 @@ public class ProposalService {
         proposal.setYearOfStudy(year_of_study);
         proposal.setPlannedYearOfGraduation(planned_year_of_graduation);
         proposal.setHealthCategory(health_category);
+        proposal.setCrime_record(crime_record);
+        proposal.setAlbum_number(album_number);
         proposal.setUserId(user_id);
         DAOFactory factory = DAOFactory.getDAOFactory();
         ProposalDAO proposalDAO = factory.getProposalDAO();
@@ -82,15 +86,15 @@ public class ProposalService {
     }
 
 
-    public List<Proposal> getAllProposals(){
+    public List<Proposal> getAllProposals() {
         return getAllProposals(null);
     }
 
-    public List<Proposal>getAllProposals(Comparator<Proposal>comparator){
+    public List<Proposal> getAllProposals(Comparator<Proposal> comparator) {
         DAOFactory factory = DAOFactory.getDAOFactory();
         ProposalDAO proposalDAO = factory.getProposalDAO();
         List<Proposal> proposals = proposalDAO.getAll();
-        if(comparator != null && proposals != null){
+        if (comparator != null && proposals != null) {
             proposals.sort(comparator);
         }
         return proposals;

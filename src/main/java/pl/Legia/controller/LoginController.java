@@ -19,6 +19,7 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         saveUserInSession(request);
+        checkIfAdmin(request);
         System.out.println("LoginController - Get");
         if (request.getUserPrincipal() != null) {
             response.sendRedirect(request.getContextPath() + "/mainPage");
@@ -27,13 +28,32 @@ public class LoginController extends HttpServlet {
         }
         HttpSession session = request.getSession(true);
         String username = String.valueOf(session.getAttribute("user"));
-        System.out.println("user: "+username);
+        System.out.println("user: " + username);
     }
+
     private void saveUserInSession(HttpServletRequest request) {
         UserService userService = new UserService();
         String username = request.getUserPrincipal().getName();
         User userByUsername = userService.getUserByUsername(username);
         request.getSession(true).setAttribute("user", userByUsername);
-        System.out.println("Nazwa użytkownika: "+ userByUsername);
+        System.out.println("Nazwa użytkownika: " + userByUsername);
     }
+
+    private void checkIfAdmin(HttpServletRequest request) {
+        System.out.println("Checking if admin");
+        UserService userService = new UserService();
+        String username = request.getUserPrincipal().getName();
+        try {
+            User adminByUsername = userService.checkIfAdmin(username);
+            if (adminByUsername != null) {
+                request.getSession(true).setAttribute("admin", adminByUsername);
+                System.out.println("Nazwa administratora: " + adminByUsername);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
 }

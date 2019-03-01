@@ -10,6 +10,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import pl.Legia.dataSource.ConnectionProvider;
 import pl.Legia.model.Proposal;
+import pl.Legia.model.User;
 
 import javax.servlet.http.HttpSession;
 import java.sql.ResultSet;
@@ -22,19 +23,21 @@ import java.util.Map;
 public class ProposalDAOImpl implements ProposalDAO {
 
     private static final String CREATE_PROPOSAL =
-            "INSERT INTO proposal(first_name, second_name, surname, citizenship, birth_date, birth_place, PESEL,address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, field_of_study,year_of_study, planned_year_of_graduation, health_category, user_id) " +
-                    "VALUES (:first_name, :second_name, :surname, :citizenship, :birth_date, :birth_place, :PESEL,:address_of_stay, :address_for_correspondence, :phone_number, :university_name, :university_faculty, :field_of_study, :year_of_study, :planned_year_of_graduation, :health_category, :user_id);";
+            "INSERT INTO proposal(first_name, surname, father_name, citizenship, birth_date, birth_place, PESEL,address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, field_of_study,year_of_study, planned_year_of_graduation, health_category, crime_record, album_number ,user_id) " +
+                    "VALUES (:first_name, :surname, :father_name, :citizenship, :birth_date, :birth_place, :PESEL,:address_of_stay, :address_for_correspondence, :phone_number, :university_name, :university_faculty, :field_of_study, :year_of_study, :planned_year_of_graduation, :health_category, :crime_record, :album_number, :user_id);";
 
     //newer version
-    private static final String READ_PROPOSALS_BY_USER_ID = "select distinct proposal_id,first_name,second_name,surname,citizenship,birth_date,birth_place,PESEL,address_of_stay,address_for_correspondence,phone_number,university_name,university_faculty,field_of_study,year_of_study,planned_year_of_graduation,health_category,proposal.user_id " +
+    private static final String READ_PROPOSALS_BY_USER_ID = "select distinct proposal_id,first_name,surname,father_name,citizenship,birth_date,birth_place,PESEL,address_of_stay,address_for_correspondence,phone_number,university_name,university_faculty,field_of_study,year_of_study,planned_year_of_graduation,health_category,crime_record, album_number ,proposal.user_id " +
             "from  proposal,user " +
             "where proposal.user_id = :user_id;";
 
     private static final String UPDATE_PROPOSAL = "UPDATE proposal " +
-            "SET first_name = :first_name, second_name = :second_name, surname = :surname, citizenship = :citizenship, birth_date = :birth_date, birth_place = :birth_place, " +
+            "SET first_name = :first_name, surname = :surname, father_name = :father_name, citizenship = :citizenship, birth_date = :birth_date, birth_place = :birth_place, " +
             "PESEL = :PESEL, address_of_stay = :address_of_stay, address_for_correspondence = :address_for_correspondence, phone_number = :phone_number, university_name = :university_name, " +
-            "university_faculty = :university_faculty, field_of_study = :field_of_study, year_of_study = :year_of_study, planned_year_of_graduation = :planned_year_of_graduation, health_category = :health_category " +
+            "university_faculty = :university_faculty, field_of_study = :field_of_study, year_of_study = :year_of_study, planned_year_of_graduation = :planned_year_of_graduation, health_category = :health_category , crime_record = :crime_record, album_number = :album_number " +
             "where user_id = :user_id";
+
+
 
     private NamedParameterJdbcTemplate template;
 
@@ -48,8 +51,8 @@ public class ProposalDAOImpl implements ProposalDAO {
         KeyHolder holder = new GeneratedKeyHolder();
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("first_name", proposal.getFirstName());
-        paramMap.put("second_name", proposal.getSecondName());
         paramMap.put("surname", proposal.getSurname());
+        paramMap.put("father_name", proposal.getFatherName());
         paramMap.put("citizenship", proposal.getCitizenship());
         paramMap.put("birth_date", proposal.getBirthDate());
         paramMap.put("birth_place", proposal.getBirthPlace());
@@ -63,6 +66,8 @@ public class ProposalDAOImpl implements ProposalDAO {
         paramMap.put("year_of_study", proposal.getYearOfStudy());
         paramMap.put("planned_year_of_graduation", proposal.getPlannedYearOfGraduation());
         paramMap.put("health_category", proposal.getHealthCategory());
+        paramMap.put("crime_record", proposal.getCrime_record());
+        paramMap.put("album_number", proposal.getAlbum_number());
         paramMap.put("user_id", proposal.getUserId());
 
         SqlParameterSource parameterSource = new MapSqlParameterSource(paramMap);
@@ -115,13 +120,14 @@ public class ProposalDAOImpl implements ProposalDAO {
         return resultProposalList;
     }
 
+
     @Override
     public Proposal updateProposal(Proposal proposal) {
         Proposal updateProposal = new Proposal();
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("first_name", proposal.getFirstName());
-        paramMap.put("second_name", proposal.getSecondName());
         paramMap.put("surname", proposal.getSurname());
+        paramMap.put("father_name", proposal.getFatherName());
         paramMap.put("citizenship", proposal.getCitizenship());
         paramMap.put("birth_date", proposal.getBirthDate());
         paramMap.put("birth_place", proposal.getBirthPlace());
@@ -135,6 +141,8 @@ public class ProposalDAOImpl implements ProposalDAO {
         paramMap.put("year_of_study", proposal.getYearOfStudy());
         paramMap.put("planned_year_of_graduation", proposal.getPlannedYearOfGraduation());
         paramMap.put("health_category", proposal.getHealthCategory());
+        paramMap.put("crime_record", proposal.getCrime_record());
+        paramMap.put("album_number", proposal.getAlbum_number());
         paramMap.put("user_id", proposal.getUserId());
 
         SqlParameterSource parameterSource = new MapSqlParameterSource(paramMap);
@@ -149,8 +157,8 @@ public class ProposalDAOImpl implements ProposalDAO {
         public Proposal mapRow(ResultSet resultSet, int row) throws SQLException {
             Proposal proposal = new Proposal();
             proposal.setFirstName(resultSet.getString("first_name"));
-            proposal.setSecondName(resultSet.getString("second_name"));
             proposal.setSurname(resultSet.getString("surname"));
+            proposal.setFatherName(resultSet.getString("father_name"));
             proposal.setCitizenship(resultSet.getString("citizenship"));
             proposal.setBirthDate(resultSet.getDate("birth_date"));
             proposal.setBirthPlace(resultSet.getString("birth_place"));
@@ -164,6 +172,8 @@ public class ProposalDAOImpl implements ProposalDAO {
             proposal.setYearOfStudy(resultSet.getString("year_of_study"));
             proposal.setPlannedYearOfGraduation(resultSet.getString("planned_year_of_graduation"));
             proposal.setHealthCategory(resultSet.getString("health_category"));
+            proposal.setCrime_record(resultSet.getString("crime_record"));
+            proposal.setAlbum_number(resultSet.getString("album_number"));
             return proposal;
         }
     }
