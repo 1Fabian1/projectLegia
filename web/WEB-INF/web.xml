@@ -76,6 +76,16 @@
         <servlet-name>StatuteServlet</servlet-name>
         <servlet-class>pl.Legia.controller.StatuteController</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>MoveToMailServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.MoveToMailController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SendMailServlet</servlet-name>
+        <servlet-class>pl.Legia.controller.SendMailController</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -147,9 +157,20 @@
         <servlet-name>StatuteServlet</servlet-name>
         <url-pattern>/statute</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>MoveToMailServlet</servlet-name>
+        <url-pattern>/MoveToMail</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>SendMailServlet</servlet-name>
+        <url-pattern>/sendMail</url-pattern>
+    </servlet-mapping>
 
 
-    <!-- Flitry -->
+    <!-- Filters -->
+    <!-- Main filter -->
     <security-constraint>
         <display-name>Login required</display-name>
         <web-resource-collection>
@@ -186,6 +207,19 @@
         </form-login-config>
     </login-config>
 
+    <!-- Admin stuff's filter -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>MailPanel</web-resource-name>
+            <url-pattern>/moveToMail</url-pattern>
+            <url-pattern>/sendMail</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
 
     
 </web-app>

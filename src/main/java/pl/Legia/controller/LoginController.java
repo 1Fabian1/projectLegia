@@ -4,12 +4,12 @@ import pl.Legia.model.User;
 import pl.Legia.serviceLayer.UserService;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,6 +48,14 @@ public class LoginController extends HttpServlet {
             if (adminByUsername != null) {
                 request.getSession(true).setAttribute("admin", adminByUsername);
                 System.out.println("Nazwa administratora: " + adminByUsername);
+
+                System.out.println("Lista użytkowników: ");
+                List<User> allUsers = null;
+                allUsers = userService.readAllUsersButLogged(username);
+                System.out.println(allUsers.toString());
+                request.getSession(true).setAttribute("allUsers",allUsers);
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();

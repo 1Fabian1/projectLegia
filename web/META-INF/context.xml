@@ -9,10 +9,11 @@
             maxTotal="1000"
             maxIdle="30"
             maxWaitMillis="10000"
-            username="legiaLocal"
-            password="haslo"
+            username="root"
+            password=""
             driverClassName="com.mysql.jdbc.Driver"
-            url="jdbc:mysql://localhost:3306/legiabase"/>
+            url="jdbc:mysql://localhost:3306/legiabase"
+    />
 
     <Realm
             className="org.apache.catalina.realm.DataSourceRealm"

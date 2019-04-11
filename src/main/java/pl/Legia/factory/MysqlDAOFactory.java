@@ -18,5 +18,10 @@ public class MysqlDAOFactory extends DAOFactory {
         return new ProposalListDAOImpl();
     }
 
+    @Override
+    public TrainingDAO getTrainingDAO() {
+        return new TrainingDAOImpl();
+    }
+
 
 }

@@ -44,11 +44,8 @@
                 <c:out value="${sessionScope.admin}"></c:out>
                 <p>Panel Admina</p>
 
-                <button type="button" size="10px">
-                    <jsp:useBean id="sendEmail" class="pl.Legia.services.SendEmail"/>
-                        ${sendEmail.sendEmail()}
-                    Send Email
-                </button>
+                <a href="/MoveToMail">Przejdź do panelu wysyłania wiadomości</a>
+
             </c:when>
         </c:choose>
 

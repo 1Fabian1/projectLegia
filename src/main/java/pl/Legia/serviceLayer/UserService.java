@@ -4,6 +4,8 @@ import pl.Legia.factory.DAOFactory;
 import pl.Legia.factory.UserDAO;
 import pl.Legia.model.User;
 
+import java.util.List;
+
 public class UserService {
 
     public void addUser(String username, String password, String email){
@@ -35,6 +37,13 @@ public class UserService {
         UserDAO userDAO = factory.getUserDAO();
         User admin = userDAO.checkIfAdmin(username);
         return admin;
+    }
+
+    public List<User> readAllUsersButLogged(String username){
+        DAOFactory factory = DAOFactory.getDAOFactory();
+        UserDAO userDAO = factory.getUserDAO();
+        List<User> allUsers = userDAO.readAllUsersButLogged(username);
+        return  allUsers;
     }
 
 }

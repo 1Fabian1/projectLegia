@@ -26,6 +26,8 @@ public class UserDAOImpl implements UserDAO {
 
     private static final String READ_IF_ADMIN = "select user.user_id, user.username, user.password, user.email from user_role, user Where user.username = user_role.username and user_role.role_name = \"admin\" and user.username = :username";
 
+    private static final String READ_ALL_USERS_BUT_LOGGED = "select * from legiabase.user where user.username != :username;";
+
     private NamedParameterJdbcTemplate template;
 
     public UserDAOImpl() {
@@ -65,6 +67,14 @@ public class UserDAOImpl implements UserDAO {
         SqlParameterSource parameterSource = new MapSqlParameterSource("username", username);
         resultUser = (User) template.queryForObject(READ_IF_ADMIN, parameterSource, new UserRowMapper());
         return resultUser;
+    }
+
+    @Override
+    public List<User> readAllUsersButLogged(String username) {
+        List<User> allResultUsers = null;
+        SqlParameterSource parameterSource = new MapSqlParameterSource("username", username);
+        allResultUsers = (List<User>) template.query(READ_ALL_USERS_BUT_LOGGED, parameterSource, new UserRowMapper());
+        return allResultUsers;
     }
 
     @Override

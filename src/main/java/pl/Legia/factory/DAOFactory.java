@@ -12,6 +12,8 @@ public abstract class DAOFactory {
 
     public abstract ProposalListDAO getProposalListDAO();
 
+    public abstract TrainingDAO getTrainingDAO();
+
     public static DAOFactory getDAOFactory() {
         DAOFactory factory = null;
         try {
