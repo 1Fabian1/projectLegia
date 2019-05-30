@@ -185,8 +185,6 @@
             <url-pattern>/ordinance</url-pattern>
             <url-pattern>/schedule</url-pattern>
             <url-pattern>/updateProposal</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
             <role-name>user</role-name>
@@ -213,8 +211,6 @@
             <web-resource-name>MailPanel</web-resource-name>
             <url-pattern>/moveToMail</url-pattern>
             <url-pattern>/sendMail</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
             <role-name>admin</role-name>

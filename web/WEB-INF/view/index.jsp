@@ -58,9 +58,7 @@
 </c:choose>
 
 <footer>
-    <p>Developed by: Fabian Bogusławski</p>
-    <p>Contact: <a href="mailto:fab123@student.ukw.edu.pl">
-        fab123@student.ukw.edu.pl</a>.</p>
+   <p>2019 xd</p>
 </footer>
 </div>
 </body>
