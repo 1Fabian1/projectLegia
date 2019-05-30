@@ -31,9 +31,11 @@
         <p>akcje do wykonania</p>
         <a href="/proposal">Złóż podanie</a><br>
         <a href="/updateProposal">Popraw podanie</a><br>
+        <a href="/addTraining">Dodaj Trening</a>
 
         <p>Materiały do pobrania</p>
         <a href="/proposalCatalog">Katalog podań</a><br>
+        <a href="getTraining">Katalog treningu</a><br>
         <a href="/ordinance">Zarządzenie</a><br>
         <a href="/schedule">Plan zajęć</a><br>
         <a href="/statute">Regualmin</a><br>

@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TrainingDAOImpl implements TrainingDAO {
 
-    private final static String READ_TRAINING_BY_ID = "select training.training_id, training.military_book_number, training.substantiation, training.qualifications, training.theoretical_part, training.basic_module, " +
+    private final static String READ_TRAINING_BY_ID = "select distinct training.training_id, training.military_book_number, training.substantiation, training.qualifications, training.theoretical_part, training.basic_module, " +
             "training.pre_officer_module, training.training_place, training.user_id " +
             "from user, training, proposal " +
             "where " +
@@ -54,7 +54,7 @@ public class TrainingDAOImpl implements TrainingDAO {
     @Override
     public Training getTrainingByUserId(long userId) {
         Training ressultTraining = new Training();
-        SqlParameterSource parameterSource = new MapSqlParameterSource("id", userId);
+        SqlParameterSource parameterSource = new MapSqlParameterSource("user_id", userId);
         ressultTraining = template.queryForObject(READ_TRAINING_BY_ID, parameterSource, new TrainingRowMapper());
         return ressultTraining;
     }
