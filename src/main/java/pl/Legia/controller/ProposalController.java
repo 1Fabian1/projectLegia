@@ -1,11 +1,9 @@
 package pl.Legia.controller;
 
-import pl.Legia.model.ProposalList;
 import pl.Legia.model.User;
 import pl.Legia.serviceLayer.ProposalService;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
