@@ -17,13 +17,16 @@
     <link rel="icon" href="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png">
     <title>Witaj na stronie Legii Akademickiej</title>
     <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
+    response.setHeader("Cache-Control","no-cache"); //HTTP 1.1
+    response.setHeader("Pragma","no-cache"); //HTTP 1.0
+    response.setDateHeader ("Expires", 0);
 </head>
 <ul>
     <li><a href="/mainPage">Strona domowa</a></li>
     <li><a href="/logout">Wyloguj się</a><br></li>
 </ul>
 
-<h1>Witaj na stronie Legii Akademickiej</h1>
+<h1>Test</h1>
 <c:choose>
     <c:when test="${not empty sessionScope.user}">
 
@@ -60,7 +63,7 @@
 </c:choose>
 
 <footer>
-   <p>2019 xd</p>
+   <p>2019 test</p>
 </footer>
 </div>
 </body>

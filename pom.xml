@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <name>Project Legia</name>
-    <description>Gathering users proposal and one way communication with them</description>
+    <description>Gathering users proposals and one way communication with them</description>
     <url>https://github.com/1Fabian1/projectLegia</url>
-    <packaging>war</packaging>
+    <packaging>WAR</packaging>
 
     <groupId>pl.legia</groupId>
     <artifactId>projectLegia</artifactId>
@@ -107,6 +107,14 @@
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>
             <version>1.6.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

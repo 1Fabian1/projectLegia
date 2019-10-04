@@ -24,3 +24,8 @@ public class IndexController extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/WEB-INF/view/index.jsp");
     }
 }
+
+
+
+
+
