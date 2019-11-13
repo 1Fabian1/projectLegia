@@ -37,7 +37,7 @@ public class ProposalController extends HttpServlet {
         String crime_record = request.getParameter("crime_record");
         String album_number = request.getParameter("album_number");
         long user_id = loggedUser.getUser_id();
-        System.out.println(first_name + " " + surname + " " + PESEL + " " + health_category);
+        System.out.println(first_name + " " + surname + " " + PESEL + " " + health_category + " " + birth_date);
         ProposalService proposalService = new ProposalService();
         proposalService.addProposal(first_name, surname, father_name ,citizenship, birth_date, birth_place, PESEL,
                 address_of_stay, address_for_correspondence, phone_number, university_name, university_faculty, field_of_study,

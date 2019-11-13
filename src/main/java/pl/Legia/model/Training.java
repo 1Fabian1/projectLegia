@@ -11,11 +11,13 @@ public class Training {
     private String basicModule;
     private String preOfficerModule;
     private String trainingPlace;
+    private String universityAddress;
     private long userId;
 
-    public Training(){};
+    public Training() {
+    }
 
-    public Training(long training_id, String militaryBookNumber, String substantiation, String qualifications, String theoreticalPart, String basicModule, String preOfficerModule, String trainingPlace, long userId) {
+    public Training(long training_id, String militaryBookNumber, String substantiation, String qualifications, String theoreticalPart, String basicModule, String preOfficerModule, String trainingPlace, String universityAddress, long userId) {
         this.training_id = training_id;
         this.militaryBookNumber = militaryBookNumber;
         this.substantiation = substantiation;
@@ -24,6 +26,7 @@ public class Training {
         this.basicModule = basicModule;
         this.preOfficerModule = preOfficerModule;
         this.trainingPlace = trainingPlace;
+        this.universityAddress = universityAddress;
         this.userId = userId;
     }
 
@@ -91,6 +94,14 @@ public class Training {
         this.trainingPlace = trainingPlace;
     }
 
+    public String getUniversityAddress() {
+        return universityAddress;
+    }
+
+    public void setUniversityAddress(String universityAddress) {
+        this.universityAddress = universityAddress;
+    }
+
     public long getUserId() {
         return userId;
     }
@@ -112,12 +123,13 @@ public class Training {
                 Objects.equals(getTheoreticalPart(), training.getTheoreticalPart()) &&
                 Objects.equals(getBasicModule(), training.getBasicModule()) &&
                 Objects.equals(getPreOfficerModule(), training.getPreOfficerModule()) &&
-                Objects.equals(getTrainingPlace(), training.getTrainingPlace());
+                Objects.equals(getTrainingPlace(), training.getTrainingPlace()) &&
+                Objects.equals(getUniversityAddress(), training.getUniversityAddress());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getTraining_id(), getMilitaryBookNumber(), getSubstantiation(), getQualifications(), getTheoreticalPart(), getBasicModule(), getPreOfficerModule(), getTrainingPlace(), getUserId());
+        return Objects.hash(getTraining_id(), getMilitaryBookNumber(), getSubstantiation(), getQualifications(), getTheoreticalPart(), getBasicModule(), getPreOfficerModule(), getTrainingPlace(), getUniversityAddress(), getUserId());
     }
 
     @Override
@@ -131,6 +143,7 @@ public class Training {
                 ", basicModule='" + basicModule + '\'' +
                 ", preOfficerModule='" + preOfficerModule + '\'' +
                 ", trainingPlace='" + trainingPlace + '\'' +
+                ", universityAddress='" + universityAddress + '\'' +
                 ", userId=" + userId +
                 '}';
     }

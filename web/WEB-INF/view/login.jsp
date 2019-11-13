@@ -11,17 +11,33 @@
     <link rel="icon" href="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png">
 
     <title>Zaloguj się</title>
-    <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/signin.css" rel="stylesheet">
 </head>
-</head>
+<body class="text-center">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Legia Akademicka UKW</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Jesteś nie zalogowany</a>
+            </li>
+        </ul>
+    </div>
+</nav>
     
-<form action="j_security_check" method="POST">
-    <h1 class="login"> Zaloguj się</h1>
-        <input class="inputer" type="text" name="j_username" placeholder="Nazwa użytkownika" maxlength="45" required autofocus></p>
-        <input class="inputer" type="password" name="j_password" placeholder="Hasło" maxlength="45" required></p>
-        <button class="buttonZal" type="submit">Zaloguj</button><br>
-        <p>Nie masz konta?</p><br>
-        <a href="/register">Zarejestruj się</a>
+
+<form class="form-signin" action="j_security_check" method="POST">
+    <h1 class="h3 mb-3 font-weight-normal">Zaloguj się</h1>
+    <label for="inputEmail" class="sr-only">Nazwa użytkownika</label>
+    <input type="text" id="inputEmail" name="j_username" class="form-control" placeholder="Nazwa użytkownika" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" name="j_password" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
 
 </form>
 </body>

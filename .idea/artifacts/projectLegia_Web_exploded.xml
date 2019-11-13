@@ -8,9 +8,6 @@
           <element id="module-output" name="projectLegia" />
         </element>
       </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/na server/META-INF/MANIFEST.MF" />
-      </element>
     </root>
   </artifact>
 </component>

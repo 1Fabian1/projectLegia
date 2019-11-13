@@ -14,7 +14,7 @@ import java.util.List;
 public class TrainingDAOImpl implements TrainingDAO {
 
     private final static String READ_TRAINING_BY_ID = "select distinct training.training_id, training.military_book_number, training.substantiation, training.qualifications, training.theoretical_part, training.basic_module, " +
-            "training.pre_officer_module, training.training_place, training.user_id " +
+            "training.pre_officer_module, training.training_place, training.user_id, training.university_address " +
             "from user, training, proposal " +
             "where " +
             "training.user_id = :user_id and " +
@@ -71,6 +71,7 @@ public class TrainingDAOImpl implements TrainingDAO {
             training.setBasicModule(resultSet.getString("basic_module"));
             training.setPreOfficerModule(resultSet.getString("pre_officer_module"));
             training.setTrainingPlace(resultSet.getString("training_place"));
+            training.setUniversityAddress(resultSet.getString("university_address"));
             training.setUserId(resultSet.getLong("user_id"));
 
             return training;

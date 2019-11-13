@@ -1,5 +1,6 @@
 package pl.Legia.factory;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -41,7 +42,7 @@ public class UserDAOImpl implements UserDAO {
         SqlParameterSource parameterSource = new BeanPropertySqlParameterSource(user);
         int update = template.update(CREATE_USER, parameterSource, holder);
         if (update > 0) {
-            resultUser.setUser_id((Long) holder.getKey());
+            resultUser.setUser_id(holder.getKey().longValue());
             setPrivigiles(resultUser);
         }
         return resultUser;
@@ -65,7 +66,12 @@ public class UserDAOImpl implements UserDAO {
     public User checkIfAdmin(String username) {
         User resultUser = null;
         SqlParameterSource parameterSource = new MapSqlParameterSource("username", username);
-        resultUser = (User) template.queryForObject(READ_IF_ADMIN, parameterSource, new UserRowMapper());
+        try{
+            resultUser = (User) template.queryForObject(READ_IF_ADMIN, parameterSource, new UserRowMapper());
+        }
+        catch (EmptyResultDataAccessException e){
+            System.out.println("Not an admin");
+        }
         return resultUser;
     }
 

@@ -10,62 +10,91 @@
 <head>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/icons/rsz_ukw.png">
     <title>Wniosek</title>
-    <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/signin.css" rel="stylesheet">
 </head>
 <body>
-<div>
-    <nav>
-        <ul>
-            <li><a href="/mainPage">Strona Domowa</a></li>
-            <li><a href="/logout">Wyloguj</a></li>
-        </ul>
-    </nav>
-</div>
 
-<form class="forma" method="POST" action="/proposal">
-    <h1>Wypełnij wniosek</h1>
-    Imię:
-    <input type="text" name="first_name" maxlength="45" placeholder="Jan" required><br>
-    Nazwisko:
-    <input type="text" name="surname" maxlength="45" placeholder="Kowalski" required><br>
-    Imię ojca:
-    <input type="text" name="father_name" maxlength="45" placeholder="Adam" required><br>
-    Narodowość:
-    <input type="text" name="citizenship" maxlength="45" placeholder="Polska" required><br>
-    Data urodzenia:
-    <input type="date" name="birth_date" placeholder="1900-01-01" min="1900-01-01" required><br>
-    Miejsce urodzenia:
-    <input type="text" name="birth_place" maxlength="45" placeholder="Miejscowość" required><br>
-    Pesel:
-    <input type="text" name="PESEL" maxlength="11" placeholder="12345678901" required><br>
-    Adres pobytu stałego:
-    <input type="text" name="address_of_stay" maxlength="150" placeholder="ul. Uliczna, 00-000 Miejscowość"
-           required><br>
-    Adres korespondencyjny:
-    <input type="text" name="address_for_correspondence" maxlength="150" placeholder="ul. Uliczna, 00-000 Miejscowość"
-           required><br>
-    Numer telefonu:
-    <input type="text" name="phone_number" maxlength="15" placeholder="111222333" required><br>
-    Nazwa uczelni:
-    <input type="text" name="university_name" maxlength="100" placeholder="Uniwersytet Kazimierza Wielkiego"
-           required><br>
-    Wydział uczelni:
-    <input type="text" name="university_faculty" maxlength="45" placeholder="IMIS" required><br>
-    Kierunek studiów:
-    <input type="text" name="field_of_study" maxlength="100" placeholder="Informatyka" required><br>
-    Rok studiów:
-    <input type="text" name="year_of_study" maxlength="4" placeholder="2" required><br>
-    Planowany rok ukończenia studiów:
-    <input type="text" name="planned_year_of_graduation" maxlength="4" placeholder="2020" required><br>
-    Orzeczona kategoria zdolności<br> do czynnej służby wojskowej:
-    <input type="text" name="health_category" maxlength="4" placeholder="A" required><br>
-    Byłem karany za przestępstwo umyślne (TAK/NIE):
-    <input type="text" name="crime_record" maxlength="45" placeholder="NIE" required><br>
-    Numer albumu:
-    <input type="text" name="album_number" maxlength="10" placeholder="12345" required><br>
-    <input class="buttonZal" type="submit" value="wyślij">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Legia Akademicka UKW</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Jesteś zalogowany</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Wyloguj się</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<form class="form-signin" action="/proposal" method="POST">
+    <h1 class="h3 mb-3 font-weight-normal">Wypełnij wniosek</h1>
+
+    <label for="inputName" class="sr-only">Imię</label>
+    <input type="text" id="inputName" name="first_name" class="form-control" placeholder="Imię" required autofocus>
+
+    <label for="inputSurname" class="sr-only">Nazwisko</label>
+    <input type="text" id="inputSurname" name="surname" class="form-control" placeholder="Nazwisko" required autofocus>
+
+    <label for="inputFatherName" class="sr-only">Imię ojca</label>
+    <input type="text" id="inputFatherName" name="father_name" class="form-control" placeholder="Imię ojca" required autofocus>
+
+    <label for="inputCitizenship" class="sr-only">Narodowość</label>
+    <input type="text" id="inputCitizenShip" name="citizenship" class="form-control" placeholder="Narodowość" required autofocus>
+
+    <p>Data urodzenia</p>
+    <label for="inputBirthDate" class="sr-only">Data urodzenia</label>
+    <input type="date" id="inputBirthDate" name="birth_date" class="form-control" placeholder="DataUrodzenia" required autofocus>
+
+    <label for="inputBirthPlace" class="sr-only">Miejsce urodzenia</label>
+    <input type="text" id="inputBirthPlace" name="birth_place" class="form-control" placeholder="Miejsce urodzenia" required autofocus>
+
+    <label for="inputPesel" class="sr-only">PESEL</label>
+    <input type="text" id="inputPesel" name="PESEL" class="form-control" placeholder="PESEL" required autofocus>
+
+    <label for="inputAddressOfStay" class="sr-only">Adres pobytu stałego</label>
+    <input type="text" id="inputAddressOfStay" name="address_of_stay" class="form-control" placeholder="Adres pobytu stałego" required autofocus>
+
+    <label for="inputCorrespondenceAddress" class="sr-only">Adres korenspondencyjny</label>
+    <input type="text" id="inputCorrespondenceAddress" name="address_for_correspondence" class="form-control" placeholder="Adres korespondencyjny" required autofocus>
+
+    <label for="inputPhoneNumber" class="sr-only">Numer telefonu</label>
+    <input type="text" id="inputPhoneNumber" name="phone_number" class="form-control" placeholder="Numer telefonu" required autofocus>
+
+    <label for="inputUniversityName" class="sr-only">Nazwa uczelni</label>
+    <input type="text" id="inputUniversityName" name="university_name" class="form-control" placeholder="Nazwa uczelni" required autofocus>
+
+    <label for="inputUniversityFaculty" class="sr-only">Wydział uczelni</label>
+    <input type="text" id="inputUniversityFaculty" name="university_faculty" class="form-control" placeholder="Wydział uczelni" required autofocus>
+
+    <label for="inputFieldOfStudy" class="sr-only">Kierunek Studiów</label>
+    <input type="text" id="inputFieldOfStudy" name="field_of_study" class="form-control" placeholder="Kierunek studiów" required autofocus>
+
+    <label for="inputYearOfStudy" class="sr-only">Rok studiów</label>
+    <input type="text" id="inputYearOfStudy" name="year_of_study" class="form-control" placeholder="Rok studiów" required autofocus>
+
+    <label for="inputYearOfGraduation" class="sr-only">Planowany rok ukończenia studiów</label>
+    <input type="text" id="inputYearOfGraduation" name="planned_year_of_graduation" class="form-control" placeholder="Planowany rok ukończenia studiów" required autofocus>
+
+    <label for="inputHealthCategory" class="sr-only">Kategoria zdrowia</label>
+    <input type="text" id="inputHealthCategory" name="health_category" class="form-control" placeholder="Kategoria zdrowia" required autofocus>
+
+    <label for="inputCrimeRecord" class="sr-only">Byłem karany za przestępstwo umyślne</label>
+    <input type="text" id="inputCrimeRecord" name="crime_record" class="form-control" placeholder="Byłem karany za przestępstwo umyślne" required autofocus>
+
+    <label for="inputAlbumNumber" class="sr-only">Numer albumu</label>
+    <input type="text" id="inputAlbumNumber" name="album_number" class="form-control" placeholder="Numer albumu" required autofocus>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Wyślij</button>
+
 </form>
 
-</table>
 </body>
 </html>

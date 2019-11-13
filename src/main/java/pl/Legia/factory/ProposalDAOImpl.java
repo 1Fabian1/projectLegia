@@ -74,7 +74,7 @@ public class ProposalDAOImpl implements ProposalDAO {
         SqlParameterSource parameterSource = new MapSqlParameterSource(paramMap);
         int update = template.update(CREATE_PROPOSAL, parameterSource, holder);
         if (update > 0) {
-            resultProposal.setProposalId((Long) holder.getKey());
+            resultProposal.setProposalId(holder.getKey().longValue());
         }
 
         return resultProposal;
