@@ -1,6 +1,8 @@
 package pl.Legia.controller;
 
+import pl.Legia.model.Training;
 import pl.Legia.model.User;
+import pl.Legia.serviceLayer.TrainingService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,8 +16,31 @@ public class AddTrainingController extends HttpServlet {
 
         System.out.println("AddTrainingController - Post");
 
-        request.setCharacterEncoding("UFT-8");
+
+
+//        request.setCharacterEncoding("UFT-8");
         User user = (User) request.getSession().getAttribute("user");
+//        Training training = new Training();
+
+        User loggedUser = (User) request.getSession().getAttribute("user");
+
+        String militaryBookNumber = request.getParameter("MilitaryBookNumber");
+        String substantiation = request.getParameter("substantiation");
+        String qualifications = request.getParameter("qualifications");
+        String theoreticalPart = request.getParameter("theoreticalPart");
+        String basicModule = request.getParameter("basicModule");
+        String preOfficerModule = request.getParameter("preOfficerModule");
+        String trainingPlace = request.getParameter("trainingPlace");
+        String universityAddress = request.getParameter("universityAddress");
+        long user_id = loggedUser.getUser_id();
+
+        System.out.println("ADD THIS TRAININIG INFO: "+qualifications + " usrID:" + user_id);
+
+        TrainingService trainingService = new TrainingService();
+        trainingService.addTraining(militaryBookNumber,substantiation,qualifications,theoreticalPart,basicModule,preOfficerModule,
+                trainingPlace,universityAddress,user_id);
+        response.setStatus(307);
+        response.sendRedirect(request.getContextPath() + "/mainPage");
 
     }
 

@@ -30,6 +30,9 @@
     <label for="inputTheoreticalPart" class="sr-only">Część teoretyczna</label>
     <input type="text" id="inputTheoreticalPart" name="theoreticalPart" class="form-control" placeholder="Część teoretyczna" required autofocus>
 
+
+    <%--
+
     <label for="inputBasicModule" class="sr-only">Moduł podstawowy</label>
     <input type="text" id="inputBasicModule" name="basicModule" class="form-control" placeholder="Modół podstawowy" required autofocus>
 
@@ -39,8 +42,34 @@
     <label for="inputTrainingPlace" class="sr-only">Miejsce treningu</label>
     <input type="text" id="inputTrainingPlace" name="trainingPlace" class="form-control" placeholder="Miejsce treningu" required autofocus>
 
+    --%>
+
+
+
     <label for="inputUniversityAddress" class="sr-only">Adres uczelni</label>
     <input type="text" id="inputUniversityAddress" name="universityAddress" class="form-control" placeholder="Adres uczelni" required autofocus>
+
+    Termin odbycia modułu podstawowego
+    <select name="basicModule" onChange="combo(this, 'theinput')">
+        <option>Lipiec - Sierpień</option>
+        <option>Sierpień - Wrzesień</option>
+    </select>
+    <br>
+
+    Termin odbycia modułu podoficerskiego
+    <select name="preOfficerModule" onChange="combo(this, 'theinput')">
+        <option>Lipiec - Sierpień</option>
+        <option>Sierpień - Wrzesień</option>
+    </select>
+    <br>
+
+    Preferowane miejsce odbycia ćwiczeń jest JW(ośrodek szkolenia) usytuowany w pobliżu:
+    <select name="trainingPlace" onChange="combo(this, 'theinput')">
+        <option>Miejsca zamieszkania</option>
+        <option>Siedziby uczelni</option>
+        <option>Nie ma znaczenia</option>
+    </select>
+
 
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj informacje</button>

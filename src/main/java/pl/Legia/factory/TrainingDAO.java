@@ -7,4 +7,5 @@ import java.util.List;
 public interface TrainingDAO extends GenericDAO<Training, Long> {
 
     Training getTrainingByUserId(long userId);
+    Training createTraining(Training training);
 }

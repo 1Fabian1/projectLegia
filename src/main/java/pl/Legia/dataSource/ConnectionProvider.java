@@ -28,7 +28,7 @@ public class ConnectionProvider {
                 Context initialContext = new InitialContext();
                 Context envContext = (Context) initialContext
                         .lookup("java:comp/env");
-                DataSource ds = (DataSource) envContext.lookup("jdbc/legiabase");
+                DataSource ds = (DataSource) envContext.lookup("jdbc/legianew");
                 dataSource = ds;
             } catch (NamingException e) {
                 e.printStackTrace();

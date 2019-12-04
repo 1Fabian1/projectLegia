@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Context>
     <Resource
-            name="jdbc/legiabase"
+            name="jdbc/legianew"
             auth="Container"
             type="javax.sql.DataSource"
             initialSize="10"
@@ -11,12 +11,12 @@
             username="root"
             password=""
             driverClassName="com.mysql.cj.jdbc.Driver"
-            url="jdbc:mysql://localhost:3306/legiabase"
+            url="jdbc:mysql://localhost:3306/legianew"
     />
 
     <Realm
             className="org.apache.catalina.realm.DataSourceRealm"
-            dataSourceName="jdbc/legiabase"
+            dataSourceName="jdbc/legianew"
             userTable="user"
             userNameCol="username"
             userCredCol="password"

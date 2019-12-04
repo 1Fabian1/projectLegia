@@ -28,7 +28,7 @@ public class ProposalDAOImpl implements ProposalDAO {
                     "VALUES (:first_name, :surname, :father_name, :citizenship, :birth_date, :birth_place, :PESEL,:address_of_stay, :address_for_correspondence, :phone_number, :university_name, :university_faculty, :field_of_study, :year_of_study, :planned_year_of_graduation, :health_category, :crime_record, :album_number, :user_id);";
 
     //newer version
-    private static final String READ_PROPOSALS_BY_USER_ID = "select distinct proposal_id,first_name,surname,father_name,citizenship,birth_date,birth_place,PESEL,address_of_stay,address_for_correspondence,phone_number,university_name,university_faculty,field_of_study,year_of_study,planned_year_of_graduation,health_category,crime_record, album_number ,proposal.user_id " +
+    private static final String READ_PROPOSALS_BY_USER_ID = "select distinct first_name,surname,father_name,citizenship,birth_date,birth_place,PESEL,address_of_stay,address_for_correspondence,phone_number,university_name,university_faculty,field_of_study,year_of_study,planned_year_of_graduation,health_category,crime_record, album_number ,proposal.user_id " +
             "from  proposal,user " +
             "where proposal.user_id = :user_id;";
 
@@ -71,13 +71,24 @@ public class ProposalDAOImpl implements ProposalDAO {
         paramMap.put("album_number", proposal.getAlbum_number());
         paramMap.put("user_id", proposal.getUserId());
 
-        SqlParameterSource parameterSource = new MapSqlParameterSource(paramMap);
-        int update = template.update(CREATE_PROPOSAL, parameterSource, holder);
-        if (update > 0) {
-            resultProposal.setProposalId(holder.getKey().longValue());
+        try {
+            SqlParameterSource parameterSource = new MapSqlParameterSource(paramMap);
+            int update = template.update(CREATE_PROPOSAL, parameterSource, holder);
+            if (update > 0) {
+                resultProposal.setProposalId(holder.getKey().longValue());
+            }
+
+
+        }catch (org.springframework.dao.DuplicateKeyException e)
+        {
+            e.printStackTrace();
+        }catch (java.lang.NullPointerException e)
+        {
+            e.printStackTrace();
         }
 
         return resultProposal;
+
     }
 
 

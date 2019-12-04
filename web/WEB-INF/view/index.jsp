@@ -148,7 +148,7 @@
             </nav>
             <div class="jumbotron">
                 <div class="container">
-                    <h1 class="display-3">Witaj na stronie lgii iaiaiaisiciekj uww</h1>
+                    <h1 class="display-3">Witaj na stronie Legii Akademickiej UKW</h1>
                     <p>Zaloguj się aby w pełni korzystać ze strony, jeśli nie masz jeszcze konta, zarejestruj się. </p>
                     <p><a class="btn btn-primary btn-lg" href="/login" role="button">Zaloguj się &raquo;</a></p>
                     <p><a class="btn btn-primary btn-lg" href="/register" role="button">Zarejestruj się &raquo;</a></p>
