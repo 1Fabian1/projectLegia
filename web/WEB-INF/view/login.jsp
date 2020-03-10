@@ -35,8 +35,8 @@
     <h1 class="h3 mb-3 font-weight-normal">Zaloguj się</h1>
     <label for="inputEmail" class="sr-only">Nazwa użytkownika</label>
     <input type="text" id="inputEmail" name="j_username" class="form-control" placeholder="Nazwa użytkownika" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="j_password" class="form-control" placeholder="Password" required>
+    <label for="inputPassword" class="sr-only">Hasło</label>
+    <input type="password" id="inputPassword" name="j_password" class="form-control" placeholder="Hasło" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
 
 </form>

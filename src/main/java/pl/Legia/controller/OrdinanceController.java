@@ -27,9 +27,5 @@ public class OrdinanceController extends HttpServlet {
         }
         in.close();
         out.flush();
-
-
-
-
     }
 }

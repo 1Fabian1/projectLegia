@@ -10,7 +10,6 @@ public abstract class DAOFactory {
 
     public abstract ProposalDAO getProposalDAO();
 
-
     public abstract TrainingDAO getTrainingDAO();
 
     public static DAOFactory getDAOFactory() {

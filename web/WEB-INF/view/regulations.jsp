@@ -13,10 +13,15 @@
     <link href="${pageContext.request.contextPath}/resources/css/styles1.css" rel="stylesheet">
 </head>
 <body>
-TEKST REGULAMINU
-1
-2
-3
+
+1. Strona ma charakter demonstracyjny na potrzeby pracy dyplomowej i nie powinny znajdować się w niej<br>
+rzeczywiste dane użytkowników.<br>
+2. Dane osobowe udostępniane za pomocą niniejszej strony internetowej będą wykorzystywane wyłącznie w<br>
+sposób zgodny z postanowieniami informacji o ochronie danych osobowych.<br>
+3. Aplikacja przetwarza dane w celu wytworzenia dokumentów niezbędnych w procesie składania podania<br>
+do Legii Akademickiej, oraz wysłania wiadomości do użytkowników.<br>
+4. Akceptując regulamin zgadzasz się na przetwarzanie podanych w serwisie informacji w celach określonych w punkcie 3.<br>
+
 <br>
 <a href="/register">Wróć</a>
 </body>

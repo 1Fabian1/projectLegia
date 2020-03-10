@@ -10,14 +10,12 @@ import pl.Legia.model.User;
 import java.util.List;
 
 public class SendEmail {
-
     private String singleAddress = null;
 
     public void sendEmail(String subject, String message, List<User> users) throws EmailException {
         Email email = new SimpleEmail();
         for (int i = 0; i < users.size(); i++) {
             singleAddress = users.get(i).getEmail();
-            //System.out.println(singleAddress);
 
             email.setHostName("smtp.googlemail.com");
             email.setSmtpPort(465);
@@ -33,6 +31,4 @@ public class SendEmail {
         }
         email.send();
     }
-
-
 }

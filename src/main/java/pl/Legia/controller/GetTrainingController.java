@@ -1,9 +1,6 @@
 package pl.Legia.controller;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -158,6 +155,101 @@ public class GetTrainingController extends HttpServlet {
             nationalityUnderDots.setAlignment(Element.ALIGN_CENTER);
             document.add(zamieszkanie2Dots);
 
+            Paragraph artykuly = new Paragraph("na podstawie art. 101 ust. 4 ustawy z dnia 21 listopada 1967 r. o powszechnym obowiązku obrony",helvetica11);
+            document.add(artykuly);
+
+            Paragraph artykuly2 = new Paragraph("Rzeczypospolitej Polskiej, zwracam się z wnioskiem o powołanie mnie w trybie ochotniczym do odbycia",helvetica11);
+            document.add(artykuly2);
+
+            Paragraph artykuly3 = new Paragraph("ćwiczeń wojskowych w ramach Legii Akademickiej.",helvetica11);
+            document.add(artykuly3);
+
+            Paragraph kategoriaZdolnosci = new Paragraph("Posiadam / nie posiadam1 kategorię zdolności do czynnej służby wojskowej: "+testTraining.getMilitaryBookNumber(),helvetica11);
+            document.add(kategoriaZdolnosci);
+
+            Paragraph emptyOne = new Paragraph("",helvetica11);
+            document.add(emptyOne);
+
+            Paragraph karalnosc = new Paragraph("Oświadczam że nie byłem / byłem karany.", helvetica11);
+            document.add(karalnosc);
+
+            Paragraph wniosekUzasadniam = new Paragraph("Wniosek uzasadniam:", helvetica11);
+            document.add(wniosekUzasadniam);
+
+            Paragraph uzasadnienie = new Paragraph(testTraining.getSubstantiation() ,helvetica11);
+            document.add(uzasadnienie);
+
+            Paragraph posiadamKwalifikacje = new Paragraph("Posiadam kwalifikacje (uprawnienia):", helvetica11);
+            document.add(posiadamKwalifikacje);
+
+            Paragraph kwalifikacje = new Paragraph(testTraining.getQualifications(), helvetica11);
+            document.add(kwalifikacje);
+
+            Paragraph zaliczenieTeorii = new Paragraph("Informuję, że zaliczyłem (-am) część teoretyczną " + testTraining.getTheoreticalPart(), helvetica11);
+            document.add(zaliczenieTeorii );
+
+            Paragraph preferowaneTerminy = new Paragraph("Preferowanym terminem odbycia ćwiczeń wojskowych jest okres:",helvetica11);
+            document.add(preferowaneTerminy);
+
+            document.add(emptyOne);
+
+            Paragraph modPodsta = new Paragraph("Moduł podstawowy", helvetica11);
+            document.add(modPodsta);
+
+            int czyLipiec = testTraining.getBasicModule().indexOf("Lipiec");
+            System.out.println("WYNIK IFA= "+ czyLipiec);
+            printModulesMonths(czyLipiec, document, helvetica11);
+
+            Paragraph modOfice = new Paragraph("Moduł podoficerski");
+            document.add(modOfice);
+
+            czyLipiec = testTraining.getPreOfficerModule().indexOf("Lipiec");
+            System.out.println("WYNIK IFA= "+ czyLipiec);
+            printModulesMonths(czyLipiec, document, helvetica11);
+
+            Paragraph prefRejon = new Paragraph("Preferowanym rejonem odbycia ćwiczeń jest JW (ośrodek szkolenia) usytuowana w pobliżu:", helvetica11);
+            document.add(prefRejon);
+            int zamieszkania = testTraining.getTrainingPlace().indexOf("zamieszkania");
+            int uczelni = testTraining.getTrainingPlace().indexOf("uczelni");
+            int znaczenia = testTraining.getTrainingPlace().indexOf("znaczenia");
+
+            if(zamieszkania >= 0)
+            {
+                Paragraph miejsceZamieszkania = new Paragraph("X     miejsca zamieszkania", helvetica11);
+                document.add(miejsceZamieszkania);
+                Paragraph siedzibyUczelni = new Paragraph("         siedziby uczelni", helvetica11);
+                document.add(siedzibyUczelni);
+                Paragraph bezZnaczenia = new Paragraph("        nie ma znaczenia", helvetica11);
+                document.add(bezZnaczenia);
+            }
+            if(uczelni >= 0)
+            {
+                Paragraph miejsceZamieszkania = new Paragraph("     miejsca zamieszkania", helvetica11);
+                document.add(miejsceZamieszkania);
+                Paragraph siedzibyUczelni = new Paragraph("X        siedziby uczelni", helvetica11);
+                document.add(siedzibyUczelni);
+                Paragraph bezZnaczenia = new Paragraph("        nie ma znaczenia", helvetica11);
+                document.add(bezZnaczenia);
+            }
+            if(znaczenia >= 0)
+            {
+                Paragraph miejsceZamieszkania = new Paragraph("     miejsca zamieszkania", helvetica11);
+                document.add(miejsceZamieszkania);
+                Paragraph siedzibyUczelni = new Paragraph("     siedziby uczelni", helvetica11);
+                document.add(siedzibyUczelni);
+                Paragraph bezZnaczenia = new Paragraph("X       nie ma znaczenia", helvetica11);
+                document.add(bezZnaczenia);
+            }
+
+            document.add(emptyOne);
+            document.add(emptyOne);
+
+            Paragraph dataIPodpis = new Paragraph("(data i czytelny podpis wnioskodawcy)", helvetica6);
+            dataIPodpis.setAlignment(Element.ALIGN_RIGHT);
+            document.add(dataIPodpis);
+
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -167,4 +259,20 @@ public class GetTrainingController extends HttpServlet {
         System.out.println(testTraining);
 
     }
+
+    private void printModulesMonths(int propperDate, Document document, Font font) throws DocumentException {
+        if(propperDate >= 0){
+            Paragraph lipiecSierpien = new Paragraph("X     lipiec - sierpień", font);
+            document.add(lipiecSierpien);
+            Paragraph sierpienWrzesien = new Paragraph("        sierpień - wrzesień", font);
+            document.add(sierpienWrzesien);
+        }else {
+            Paragraph lipiecSierpien = new Paragraph("      lipiec - sierpień", font);
+            document.add(lipiecSierpien);
+            Paragraph sierpienWrzesien = new Paragraph("X       sierpień - wrzesień", font);
+            document.add(sierpienWrzesien);
+        }
+    }
+
+
 }

@@ -34,27 +34,17 @@
     </div>
 </nav>
 
-<form class="form-signin" action="/sendMail" method="POST">
-    <h1 class="h3 mb-3 font-weight-normal">Zaloguj się</h1>
-    <label for="inputEmail" class="sr-only">Nazwa użytkownika</label>
-    <input type="text" id="inputEmail" name="j_username" class="form-control" placeholder="Nazwa użytkownika" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="j_password" class="form-control" placeholder="Password" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
 
-</form>
-
-<p>Witaj w panelu odpowiadającym za wysyłanie wiadomości</p>
-
-<
-<form method="POST" action="/sendMail" id="mailForm">
-    Temat wiadomości:
-    <input type="text" name="MailTopic"><br>
-    Treść wiadomości:<br>
-    <textarea name="mailMessage" form="mailForm" rows="20" cols="100">Treść wiadomości</textarea><br><br>
-    <input type="submit" value="Wyślij do wszystkich">
-</form>
-
+<center>
+    <p>Witaj w panelu odpowiadającym za wysyłanie wiadomości</p>
+    <form method="POST" action="/sendMail" id="mailForm">
+        Temat wiadomości:<br>
+        <textarea name="MailTopic" rows="2" cols="45"></textarea><br>
+        Treść wiadomości:<br>
+        <textarea name="mailMessage" form="mailForm" rows="8" cols="45"></textarea><br><br>
+        <input type="submit" value="Wyślij do wszystkich użytkowników">
+    </form>
+</center>
 
 
 

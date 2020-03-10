@@ -76,6 +76,4 @@ public class User {
     public int hashCode() {
         return Objects.hash(user_id, username, password, email);
     }
-
-
 }

@@ -31,21 +31,6 @@
     <input type="text" id="inputTheoreticalPart" name="theoreticalPart" class="form-control" placeholder="Część teoretyczna" required autofocus>
 
 
-    <%--
-
-    <label for="inputBasicModule" class="sr-only">Moduł podstawowy</label>
-    <input type="text" id="inputBasicModule" name="basicModule" class="form-control" placeholder="Modół podstawowy" required autofocus>
-
-    <label for="inputPreOfficerModule" class="sr-only">Modół pod oficerski</label>
-    <input type="text" id="inputPreOfficerModule" name="preOfficerModule" class="form-control" placeholder="Modół pod oficerski" required autofocus>
-
-    <label for="inputTrainingPlace" class="sr-only">Miejsce treningu</label>
-    <input type="text" id="inputTrainingPlace" name="trainingPlace" class="form-control" placeholder="Miejsce treningu" required autofocus>
-
-    --%>
-
-
-
     <label for="inputUniversityAddress" class="sr-only">Adres uczelni</label>
     <input type="text" id="inputUniversityAddress" name="universityAddress" class="form-control" placeholder="Adres uczelni" required autofocus>
 

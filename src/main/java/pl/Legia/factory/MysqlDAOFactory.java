@@ -2,7 +2,6 @@ package pl.Legia.factory;
 
 public class MysqlDAOFactory extends DAOFactory {
 
-
     @Override
     public UserDAO getUserDAO() {
         return new UserDAOImpl();
@@ -17,6 +16,4 @@ public class MysqlDAOFactory extends DAOFactory {
     public TrainingDAO getTrainingDAO() {
         return new TrainingDAOImpl();
     }
-
-
 }

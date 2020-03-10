@@ -64,7 +64,13 @@ public class TrainingDAOImpl implements TrainingDAO {
     public Training getTrainingByUserId(long userId) {
         Training ressultTraining = new Training();
         SqlParameterSource parameterSource = new MapSqlParameterSource("user_id", userId);
-        ressultTraining = template.queryForObject(READ_TRAINING_BY_ID, parameterSource, new TrainingRowMapper());
+        try {
+            ressultTraining = template.queryForObject(READ_TRAINING_BY_ID, parameterSource, new TrainingRowMapper());
+        }catch (org.springframework.dao.EmptyResultDataAccessException e)
+        {
+            e.printStackTrace();
+        }
+
         return ressultTraining;
     }
 
@@ -103,7 +109,6 @@ public class TrainingDAOImpl implements TrainingDAO {
         @Override
         public Training mapRow(ResultSet resultSet, int rowNum) throws SQLException {
             Training training = new Training();
-//            training.setTraining_id(resultSet.getLong("training_id"));
             training.setMilitaryBookNumber(resultSet.getString("military_book_number"));
             training.setSubstantiation(resultSet.getString("substantiation"));
             training.setQualifications(resultSet.getString("qualifications"));

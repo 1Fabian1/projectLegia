@@ -16,11 +16,7 @@ public class AddTrainingController extends HttpServlet {
 
         System.out.println("AddTrainingController - Post");
 
-
-
-//        request.setCharacterEncoding("UFT-8");
         User user = (User) request.getSession().getAttribute("user");
-//        Training training = new Training();
 
         User loggedUser = (User) request.getSession().getAttribute("user");
 

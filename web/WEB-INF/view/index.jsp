@@ -111,16 +111,15 @@
 
             <c:choose>
                 <c:when test="${not empty sessionScope.admin}">
-                   <p>Admin</p>
                     <div class="container">
                         <!-- Admin stuff -->
 
+                        <div class="row">
                             <div class="col-md-4">
                                 <h2>Wyślij wiadomości</h2>
-                                <p>Wyślij maila tej samej treści do wszystkich członków szkolenia.</p>
+                                <p>Wyślij maila tej samej treści do wszystkich członków.</p>
                                 <p><a class="btn btn-secondary" href="/MoveToMail" role="button">Przejdź &raquo;</a></p>
                             </div>
-                        </div>
 
                         <hr>
 
@@ -159,7 +158,7 @@
     </c:choose>
 </main>
 <footer class="container">
-    <p>&copy; Fabian 2019</p>
+    <p>Legia Akademicka 2020</p>
 </footer>
 </body>
 </html>

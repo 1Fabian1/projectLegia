@@ -11,7 +11,6 @@ import org.springframework.jdbc.support.KeyHolder;
 import pl.Legia.dataSource.ConnectionProvider;
 import pl.Legia.model.User;
 
-import javax.swing.tree.TreePath;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -27,7 +26,9 @@ public class UserDAOImpl implements UserDAO {
 
     private static final String READ_IF_ADMIN = "select user.user_id, user.username, user.password, user.email from user_role, user Where user.username = user_role.username and user_role.role_name = \"admin\" and user.username = :username";
 
-    private static final String READ_ALL_USERS_BUT_LOGGED = "select * from legiabase.user where user.username != :username;";
+    private static final String READ_ALL_USERS_BUT_LOGGED = "select * from legianew.user where user.username != :username;";
+
+    private static final String READ_WHOLE_BASE = "select * from user, proposal, training where user.user_id = proposal.user_id AND user.user_id = training.user_id;";
 
     private NamedParameterJdbcTemplate template;
 

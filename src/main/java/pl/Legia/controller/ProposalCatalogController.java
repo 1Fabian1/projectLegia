@@ -31,7 +31,6 @@ public class ProposalCatalogController extends HttpServlet {
         ProposalService proposalService = new ProposalService();
         proposals = proposalService.getProposalByUserId(user);
 
-        //System.out.println(proposals.toString());
         request.getSession().setAttribute("proposals", proposals);
 
         Document document = new Document();
@@ -57,15 +56,10 @@ public class ProposalCatalogController extends HttpServlet {
 
 
             PdfPTable table = new PdfPTable(2);
-            table.setWidthPercentage(100); //Width 100%
+            table.setWidthPercentage(100);
 
-            table.setSpacingBefore(5f); //Space before table
-            table.setSpacingAfter(5f); //Space after table
-
-
-            //Set Column widths
-            //float[] columnWidths = {1f, 1f};
-            //table.setWidths(columnWidths);
+            table.setSpacingBefore(5f);
+            table.setSpacingAfter(5f);
 
 
             PdfPCell cellFirstNameA = new PdfPCell(new Paragraph("Imię i nazwisko: ", helvetica11));
@@ -280,25 +274,7 @@ public class ProposalCatalogController extends HttpServlet {
             e.printStackTrace();
         }
         document.close();
-        //request.getRequestDispatcher("WEB-INF/view/proposalCatalog.jsp").forward(request, response);
     }
 
-    // show user's proposal
-        /*
-        System.out.println("ProposalCatalogController - get");
-
-        User loggedUser = (User) request.getSession().getAttribute("user");
-        System.out.println(loggedUser.toString());
-        long user = loggedUser.getUser_id();
-        ProposalService proposalService = new ProposalService();
-        List<Proposal> proposals = proposalService.getProposalByUserId(user);
-
-        System.out.println("Proposals dla Catalogu");
-        System.out.println(proposals.toString());
-        request.getSession().setAttribute("proposals", proposals);
-
-        request.getRequestDispatcher("WEB-INF/view/proposalCatalog.jsp").forward(request, response);
-
-        */
 }
 

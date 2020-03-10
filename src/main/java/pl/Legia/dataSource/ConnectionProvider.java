@@ -1,7 +1,5 @@
 package pl.Legia.dataSource;
 
-import org.apache.catalina.startup.Catalina;
-import org.apache.catalina.startup.Tomcat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -9,7 +7,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 

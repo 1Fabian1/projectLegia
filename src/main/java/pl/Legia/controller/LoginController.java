@@ -28,6 +28,7 @@ public class LoginController extends HttpServlet {
         }
         HttpSession session = request.getSession(true);
         String username = String.valueOf(session.getAttribute("user"));
+
         System.out.println("user: " + username);
     }
 
@@ -44,7 +45,7 @@ public class LoginController extends HttpServlet {
         UserService userService = new UserService();
         String username = request.getUserPrincipal().getName();
         try {
-            User adminByUsername = userService.checkIfAdmin(username);
+                User adminByUsername = userService.checkIfAdmin(username);
             if (adminByUsername != null) {
                 request.getSession(true).setAttribute("admin", adminByUsername);
                 System.out.println("Nazwa administratora: " + adminByUsername);
@@ -53,15 +54,11 @@ public class LoginController extends HttpServlet {
                 List<User> allUsers = null;
                 allUsers = userService.readAllUsersButLogged(username);
                 System.out.println(allUsers.toString());
-                request.getSession(true).setAttribute("allUsers",allUsers);
-
-
+                request.getSession(true).setAttribute("allUsers", allUsers);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
 }

@@ -20,20 +20,6 @@ public class MainPageController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("MainPageController - Get");
 
-
-        /*
-        // here's comes the error HTTP 500
-        User loggedUser = (User) request.getSession().getAttribute("user");
-        System.out.println(loggedUser.toString());
-        long user = (long) loggedUser.getUser_id();
-        ProposalService proposalService = new ProposalService();
-        List<Proposal> proposals = proposalService.getProposalByUserId(user);
-
-        //System.out.println("Proposalsy");
-        //System.out.println(proposals.toString());
-        request.getSession().setAttribute("proposals", proposals);
-        */
-
         response.sendRedirect(request.getContextPath() + "/");
     }
 
@@ -43,6 +29,3 @@ public class MainPageController extends HttpServlet {
 
     }
 }
-
-//sesionScope.size: <c:out value="${sessionScope.size()}"/><br>
-//sesionScope.values: <c:out value="${sessionScope.values()}"/><br>

@@ -19,7 +19,6 @@ public class IndexController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-
         System.out.println("IndexController - Get");
         response.sendRedirect(request.getContextPath() + "/WEB-INF/view/index.jsp");
     }

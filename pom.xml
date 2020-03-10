@@ -6,19 +6,7 @@
 
     <name>Project Legia</name>
     <description>Gathering users proposals and one way communication with them</description>
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<source>6</source>-->
-                    <!--<target>6</target>-->
-                    <!--<webXml>src\main\webapp\WEB-INF\web.xml</webXml>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
+
 
 
     <groupId>pl.legia</groupId>
@@ -152,6 +140,14 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.7</version>
+        </dependency>
+
     </dependencies>
 
 </project>
